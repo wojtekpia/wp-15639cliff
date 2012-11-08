@@ -1,5 +1,103 @@
 var schools = [
 {
+	"name" : "Southridge School",
+	"level": "k_12", 
+    "type": "private", 
+    "phone_number": "(604) 535-5056",
+	"address" : {
+		"line" : "2656 160 St",
+		"city" : "Surrey",
+		"state_code" : "BC",
+		"postal_code" : "V3S 0B7",
+		"lat" : 49.051407,
+		"long" : -122.779226
+	},
+	"rank" : {
+		"average" : "2/261",
+		"by" : {
+			"year" : {
+				"2010-11" : "5/280"
+			}
+		},
+	},
+	"rating" : {
+		"fraser_institute" : {
+			"href" : "http://britishcolumbia.compareschoolrankings.org/secondary/Southridge_School/Surrey/Report_Card.aspx",
+			"score" : "9.6/10"
+		}
+	},
+	"general_info" : [
+		{"name":"Gr 12 Enrollment","value":"66"},
+		{"name":"ESL","value":"0.0%"},
+		{"name":"Special needs","value":"n/a"},
+		{"name":"French Immersion","value":"n/a"},
+		{"name":"Parents' average income","value":"$101,200"},
+		{"name":"Actual rating vs. predicted based on parents' avg. inc.","value":"2.3"},
+	],
+	
+	"academic_performance" : [{
+		"name" : "Average exam mark",
+		"by" : {
+			"year" : {
+				"2007":83,"2008":84.5,"2009":84.2,"2010":85.9,
+				"2011":84.9,
+			}
+		}
+	}, {
+		"name" : "Percentage of exams failed",
+		"by" : {
+			"year" : {
+				"2007":0.3,"2008":0.3,"2009":0.3,"2010":0,"2011":0.3,
+
+			}
+		}
+	}, {
+		"name" : "School vs exam mark difference",
+		"by" : {
+			"year" : {
+				"2007":3.2,"2008":0.8,"2009":1.6,"2010":0.7,"2011":1.4,
+
+			}
+		}
+	}, {
+		"name" : "English gender gap",
+		"by" : {
+			"year" : {
+				"2007":"F 0.6","2008":"F 1.9","2009":"M 1.0","2010":"F 4.0","2011":"F 1.7",
+
+			}
+		}
+	}, {
+		"name" : "Math gender gap",
+		"by" : {
+			"year" : {
+				"2007":"E","2008":"M 2.1","2009":"M 4.1","2010":"F 0.2","2011":"M 6.0",
+			}
+		}
+	}, {
+		"name" : "Graduation rate",
+		"by" : {
+			"year" : {
+				"2007":100,"2008":100,"2009":100,"2010":98.4,"2011":100,
+			}
+		}
+	}, {
+		"name" : "Delayed advancement rate",
+		"by" : {
+			"year" : {
+				"2007":0,"2008":2.6,"2009":2.2,"2010":6.4,"2011":2.6,
+			}
+		}
+	}, {
+		"name" : "Overall rating out of 10",
+		"by" : {
+			"year" : {
+				"2007":10,"2008":10,"2009":9.8,"2010":9.6,"2011":9.6,
+			}
+		}
+	}]
+},
+{
 	"name" : "Earl Marriott Secondary",
 	"level": "high_school", 
     "type": "public", 
@@ -247,104 +345,6 @@ var schools = [
 				"2009" : 6.9,
 				"2010" : 6.7,
 				"2011" : 7.4,
-			}
-		}
-	}]
-},
-{
-	"name" : "Southridge School",
-	"level": "k_12", 
-    "type": "private", 
-    "phone_number": "(604) 535-5056",
-	"address" : {
-		"line" : "2656 160 St",
-		"city" : "Surrey",
-		"state_code" : "BC",
-		"postal_code" : "V3S 0B7",
-		"lat" : 49.051407,
-		"long" : -122.779226
-	},
-	"rank" : {
-		"average" : "2/261",
-		"by" : {
-			"year" : {
-				"2010-11" : "5/280"
-			}
-		},
-	},
-	"rating" : {
-		"fraser_institute" : {
-			"href" : "http://britishcolumbia.compareschoolrankings.org/secondary/Southridge_School/Surrey/Report_Card.aspx",
-			"score" : "9.6/10"
-		}
-	},
-	"general_info" : [
-		{"name":"Gr 12 Enrollment","value":"66"},
-		{"name":"ESL","value":"0.0%"},
-		{"name":"Special needs","value":"n/a"},
-		{"name":"French Immersion","value":"n/a"},
-		{"name":"Parents' average income","value":"$101,200"},
-		{"name":"Actual rating vs. predicted based on parents' avg. inc.","value":"2.3"},
-	],
-	
-	"academic_performance" : [{
-		"name" : "Average exam mark",
-		"by" : {
-			"year" : {
-				"2007":83,"2008":84.5,"2009":84.2,"2010":85.9,
-				"2011":84.9,
-			}
-		}
-	}, {
-		"name" : "Percentage of exams failed",
-		"by" : {
-			"year" : {
-				"2007":0.3,"2008":0.3,"2009":0.3,"2010":0,"2011":0.3,
-
-			}
-		}
-	}, {
-		"name" : "School vs exam mark difference",
-		"by" : {
-			"year" : {
-				"2007":3.2,"2008":0.8,"2009":1.6,"2010":0.7,"2011":1.4,
-
-			}
-		}
-	}, {
-		"name" : "English gender gap",
-		"by" : {
-			"year" : {
-				"2007":"F 0.6","2008":"F 1.9","2009":"M 1.0","2010":"F 4.0","2011":"F 1.7",
-
-			}
-		}
-	}, {
-		"name" : "Math gender gap",
-		"by" : {
-			"year" : {
-				"2007":"E","2008":"M 2.1","2009":"M 4.1","2010":"F 0.2","2011":"M 6.0",
-			}
-		}
-	}, {
-		"name" : "Graduation rate",
-		"by" : {
-			"year" : {
-				"2007":100,"2008":100,"2009":100,"2010":98.4,"2011":100,
-			}
-		}
-	}, {
-		"name" : "Delayed advancement rate",
-		"by" : {
-			"year" : {
-				"2007":0,"2008":2.6,"2009":2.2,"2010":6.4,"2011":2.6,
-			}
-		}
-	}, {
-		"name" : "Overall rating out of 10",
-		"by" : {
-			"year" : {
-				"2007":10,"2008":10,"2009":9.8,"2010":9.6,"2011":9.6,
 			}
 		}
 	}]
