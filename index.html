@@ -25,10 +25,16 @@
 			$(document).ready(function() {
 				var schoolTemplate = _.template(app.templates.school);
 				var schoolhtml = "";
-				for(var i = 0; i < schools.length; i++) {
-					schoolhtml += schoolTemplate({ 'school': schools[i] });					
+				for (var i = 0; i < schools.length; i++) {
+					schoolhtml += schoolTemplate({
+						'school' : schools[i]
+					});
 				}
 				$("#school").html(schoolhtml);
+				$("#school").accordion({
+					heightStyle : "content",
+					collapsible: true
+				});
 			});
 		</script>
 	</head>

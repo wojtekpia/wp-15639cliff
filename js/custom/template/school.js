@@ -1,5 +1,6 @@
 app.templates.school = "\
-<p>\
+<h3><%= school.name %></h3>\
+<div>\
 <table>\
             <tr><th><%= school.name %></th></tr>\
             <tr><td><%= school.type %> <%= school.level %></td></tr>\
@@ -42,4 +43,5 @@ app.templates.school = "\
             	</tr>\
             <% } %>\
         </table>\
+</div>\
 "
