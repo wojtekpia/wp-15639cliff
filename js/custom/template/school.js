@@ -1,6 +1,7 @@
 app.templates.school = "\
+<p>\
 <table>\
-            <tr><td><%= school.name %></td></tr>\
+            <tr><th><%= school.name %></th></tr>\
             <tr><td><%= school.type %> <%= school.level %></td></tr>\
             <tr><td><%= school.address.line %></td></tr>\
             <tr><td><%= school.address.city %> <%= school.address.state_code %> <%= school.address.postal_code %></td></tr>\
