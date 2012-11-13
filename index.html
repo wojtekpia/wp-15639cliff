@@ -3,15 +3,16 @@
 		<meta charset="utf-8" />
 		<title>15639 Cliff Ave, White Rock, BC</title>
 		<link rel="stylesheet" href="/resources/demos/style.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" href="css/plugin/jquery-ui.css" />
 
-		<script src="http://underscorejs.org/underscore-min.js"></script>
+		<script src="js/plugin/underscore-min.js"></script>
 
-		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script src="js/plugin/jquery-1.8.2.js"></script>
+		<script src="js/plugin/jquery-ui.js"></script>
 
 		<script type="text/javascript" src="js/custom/code/init.js"></script>
 		<script type="text/javascript" src="js/custom/code/data.js"></script>
+		<script type="text/javascript" src="js/custom/code/money.js"></script>
 
 		<script>
 			$(function() {
@@ -20,9 +21,21 @@
 		</script>
 
 		<script type="text/javascript" src="js/custom/template/school.js"></script>
+		<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
+		<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
+		
 
 		<script type="text/javascript">
 			$(document).ready(function() {
+				//listing_details
+				var listingHeaderTemplate = _.template(app.templates.listing_header);
+				var listingHeaderHtml = listingHeaderTemplate({'listing' : listing});
+				$("#listing_header").html(listingHeaderHtml);
+				
+				var listingOverviewTemplate = _.template(app.templates.listing_overview);
+				var listingOverviewHtml = listingOverviewTemplate({'listing' : listing});
+				$("#listing_overview").html(listingOverviewHtml);
+				
 				var schoolTemplate = _.template(app.templates.school);
 				var schoolhtml = "";
 				for (var i = 0; i < schools.length; i++) {
@@ -68,10 +81,9 @@
 				</li>
 			</ul>
 			<div id="tabs-1">
-				<img src="images/cliffhouse.jpg" width="800" />
-				<p>
-					Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
-				</p>
+				<div id="listing_header"></div>
+				<div id="listing_overview"></div>
+				
 			</div>
 			<div id="tabs-2">
 				<div id="school"></div>
