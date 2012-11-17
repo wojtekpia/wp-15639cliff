@@ -36,27 +36,76 @@ var listing = {
         "name":"Fraser Valley Real Estate Board"
     },
     "photo": {
-    	"count":1,
-    	"href":"images/cliffhouse{0}.jpg"
+    	"count":3,
+    	"href":"images/cliffhouse{i}_{s}.jpg"
     },
     "zoning":"residential_detached",
     "description":"This acclaimed Lottery Home Builder and Designer have teamed up again for another stunning home. Attention to detail in this modern seaside home featuring panoramic sweeping ocean views on a coveted 11000 SF lot. This home plan features a large kitchen with top quality custom cabinets, wok kitchen and wine room opening up to a large greatroom to soak in that ocean view. Large covered patio decks with a fireplace. The front of the home has a retractable door from floor to ceiling and the back of home looks out onto the private and expansive yard. The Mbedroom view is breathtaking with double french doors opening onto your private deck. Additional features include Elevator rough-in, 3 zone high efficiency with heat pump, media rm.",
     "features": [
         {
             "category": "Interior Features", 
-            "text": [
-                "Air conditioning", 
-                "Elevator rough-in"
+            "features": [
+                {
+                	"title": "Equipment", 
+                	"features":
+                		["Elevator rough-in"]
+                },
+                {
+                	"title": "Heating & Cooling", 
+                	"features":
+                		["Air conditioning"]
+                },
+                {
+                	"title": "Rooms", 
+                	"features":
+                		[
+                			"Kitchen: 15 x 11",
+							"Master bedroom: 14 x 17",
+							"Family room: 14 x 19",
+							"Great room: 20 x 21",
+							"Laundry: 13 x 10",
+							"Bedroom: 11 x 17",
+							"Bedroom: 11 x 13",
+							"Bedroom: 14 x 12",
+							"Bedroom: 11 x 11",
+							"Eating Area: 12 x 17",
+							"Entrance Hall: 8 x 13",
+							"Media Room: 19 x 18",
+							"Recreation Room: 19 x 19",
+							"Wine Room: 9 x 12",
+							"Wine Room: 5 x 3",
+							"Wok Kitchen: 9 x 3"
+						]
+                }
             ]
         },
         {
-            "category": "View", 
-            "text": [
-                "Panoramic ocean view", 
-                "Baker view"
-            ]
+        	"category": "Property / Lot Details", 
+            "features": [
+                {
+                	"title": "View", 
+                	"features":
+                		["Panoramic ocean view", "Baker view"]
+                }
+            ]	
         }
     ], 
+    "rooms":[{"name":"Kitchen", "dimension":"15 x 11"},
+		{"name":"Master bedroom", "dimension":"14 x 17"},
+		{"name":"Family room", "dimension":"14 x 19"},
+		{"name":"Great room", "dimension":"20 x 21"},
+		{"name":"Laundry", "dimension":"13 x 10"},
+		{"name":"Bedroom", "dimension":"11 x 17"},
+		{"name":"Bedroom", "dimension":"11 x 13"},
+		{"name":"Bedroom", "dimension":"14 x 12"},
+		{"name":"Bedroom", "dimension":"11 x 11"},
+		{"name":"Eating Area", "dimension":"12 x 17"},
+		{"name":"Entrance Hall", "dimension":"8 x 13"},
+		{"name":"Media Room", "dimension":"19 x 18"},
+		{"name":"Recreation Room", "dimension":"19 x 19"},
+		{"name":"Wine Room", "dimension":"9 x 12"},
+		{"name":"Wine Room", "dimension":"5 x 3"},
+		{"name":"Wok Kitchen", "dimension":"9 x 3"}],
     "agent": {
         "name": "Sheena Reimer", 
         "id": "FREIMSH", 

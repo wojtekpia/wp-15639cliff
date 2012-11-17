@@ -4,29 +4,26 @@
 		<title>15639 Cliff Ave, White Rock, BC</title>
 		<link rel="stylesheet" href="/resources/demos/style.css" />
 		<link rel="stylesheet" href="css/plugin/jquery-ui.css" />
+		<link rel="stylesheet" href="css/plugin/nivo-slider.css" />
 
 		<script src="js/plugin/underscore-min.js"></script>
-
 		<script src="js/plugin/jquery-1.8.2.js"></script>
 		<script src="js/plugin/jquery-ui.js"></script>
+		<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
 
 		<script type="text/javascript" src="js/custom/code/init.js"></script>
 		<script type="text/javascript" src="js/custom/code/data.js"></script>
 		<script type="text/javascript" src="js/custom/code/money.js"></script>
-
-		<script>
-			$(function() {
-				$("#tabs").tabs();
-			});
-		</script>
-
+		
 		<script type="text/javascript" src="js/custom/template/school.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
-		
+		<script type="text/javascript" src="js/custom/template/listing_features.js"></script>
 
 		<script type="text/javascript">
 			$(document).ready(function() {
+				$("#tabs").tabs();
+				
 				//listing_details
 				var listingHeaderTemplate = _.template(app.templates.listing_header);
 				var listingHeaderHtml = listingHeaderTemplate({'listing' : listing});
@@ -35,6 +32,10 @@
 				var listingOverviewTemplate = _.template(app.templates.listing_overview);
 				var listingOverviewHtml = listingOverviewTemplate({'listing' : listing});
 				$("#listing_overview").html(listingOverviewHtml);
+				
+				var listingFeaturesTemplate = _.template(app.templates.listing_features);
+				var listingFeaturesHtml = listingFeaturesTemplate({'listing' : listing});
+				$("#listing_features").html(listingFeaturesHtml);
 				
 				var schoolTemplate = _.template(app.templates.school);
 				var schoolhtml = "";
@@ -48,11 +49,37 @@
 					heightStyle : "content",
 					collapsible: true
 				});
+				
+				
+			    $("#listing-images").nivoSlider({
+			        effect:"sliceUpDown",
+			        slices:15,
+			        boxCols:8,
+			        boxRows:4,
+			        animSpeed:200,
+			        pauseTime:100000,
+			        startSlide:0,
+			        directionNav:true,
+			        controlNav:true,
+			        controlNavThumbs:true,
+			        pauseOnHover:true,
+			        manualAdvance:false
+			    });
 			});
 		</script>
 	</head>
 	<body>
-
+<!--
+	features / rooms <-- done
+	neighborhood data <-- convert from xml to json.
+	map
+	image gallery <-- next/prev
+	google analytics
+	css!
+	lead form
+	SEO
+	
+	 -->
 		<div id="tabs">
 			<ul>
 				<li>
@@ -68,9 +95,6 @@
 					<a href="#tabs-4">Designer</a>
 				</li>
 				<li>
-					<a href="#tabs-5">Photos</a>
-				</li>
-				<li>
 					<a href="#tabs-6">Spec sheet</a>
 				</li>
 				<li>
@@ -83,7 +107,7 @@
 			<div id="tabs-1">
 				<div id="listing_header"></div>
 				<div id="listing_overview"></div>
-				
+				<div id="listing_features"></div>
 			</div>
 			<div id="tabs-2">
 				<div id="school"></div>
@@ -93,11 +117,6 @@
 			</div>
 			<div id="tabs-4">
 				<iframe src="http://www.donetothenines.ca/index.html" width="1600" height="800"></iframe>
-			</div>
-			<div id="tabs-5">
-				<p>
-					Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
-				</p>
 			</div>
 			<div id="tabs-6">
 				<p>
