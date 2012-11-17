@@ -6,9 +6,15 @@ var listing = {
         "postal_code": "V4B 1W1", 
         "city": "White Rock", 
         "state_code": "BC",  
-        "lat": 49.021988, 
-        "long": -122.788731
+        "lat": 49.022302, 
+        "long": -122.789153
     }, 
+    "boundary":{ 
+    	"type": "Polygon",
+		"coordinates": [
+		    	[ [-122.789258, 49.022061], [-122.789258, 49.02265], [-122.789048, 49.02265], [-122.789048, 49.022061], [-122.789258, 49.022061] ]
+		    ]
+	 },
     "neighborhood": ["Hillside"], 
     "price": 2688800, 
     "bed": 5, 

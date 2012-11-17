@@ -5,20 +5,26 @@
 		<link rel="stylesheet" href="/resources/demos/style.css" />
 		<link rel="stylesheet" href="css/plugin/jquery-ui.css" />
 		<link rel="stylesheet" href="css/plugin/nivo-slider.css" />
+		
+		<link rel="stylesheet" href="css/custom/map.css" />
 
 		<script src="js/plugin/underscore-min.js"></script>
 		<script src="js/plugin/jquery-1.8.2.js"></script>
 		<script src="js/plugin/jquery-ui.js"></script>
 		<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
+		
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
 
 		<script type="text/javascript" src="js/custom/code/init.js"></script>
 		<script type="text/javascript" src="js/custom/code/data.js"></script>
 		<script type="text/javascript" src="js/custom/code/money.js"></script>
+		<script type="text/javascript" src="js/custom/code/map_helper.js"></script>
 		
 		<script type="text/javascript" src="js/custom/template/school.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_features.js"></script>
+		
 
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -65,7 +71,34 @@
 			        pauseOnHover:true,
 			        manualAdvance:false
 			    });
+
+				var centerPt = new google.maps.LatLng(listing.address.lat, listing.address.long);
+				var myOptions = {
+				    zoom: 18,
+				    streetViewControl: true,
+				    center: centerPt,
+				    mapTypeId: google.maps.MapTypeId.SATELLITE
+				};
+				
+				var map = new google.maps.Map($('#map')[0], myOptions);
+				
+				var marker = new google.maps.Marker({
+				      position: centerPt,
+				      map: map,
+				      title:listing.address.line });
+				
+				 var boundary = new google.maps.Polygon({
+				    paths: map_helper.geoJsonPolygonToLatLngArray(listing.boundary),
+				    strokeColor: "#FF0000",
+				    strokeOpacity: 0.8,
+				    strokeWeight: 2,
+				    fillOpacity: 0.0
+				  });
+				
+				  boundary.setMap(map);
+
 			});
+			
 		</script>
 	</head>
 	<body>
@@ -79,7 +112,8 @@
 	lead form
 	SEO
 	
-	 -->
+	 -->	 
+
 		<div id="tabs">
 			<ul>
 				<li>
@@ -99,9 +133,6 @@
 				</li>
 				<li>
 					<a href="#tabs-7">Contact</a>
-				</li>
-				<li>
-					<a href="#tabs-8">Location</a>
 				</li>
 			</ul>
 			<div id="tabs-1">
@@ -128,10 +159,10 @@
 					Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
 				</p>
 			</div>
-			<div id="tabs-8">
-				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=15639+Cliff%E2%80%8F+Avenue,+White+Rock,+BC&amp;aq=&amp;sll=49.022054,-122.789104&amp;sspn=0.006015,0.016512&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=15639+Cliff+Ave,+White+Rock,+British+Columbia+V4B+1W2&amp;z=14&amp;ll=49.022027,-122.789095&amp;output=embed"></iframe>
-			</div>
 		</div>
+		
+ 		<div id="map"></div>​
+
 
 	</body>
 </html>
