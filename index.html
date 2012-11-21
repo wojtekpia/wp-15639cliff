@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="css/plugin/nivo-slider.css" type="text/css" media="screen" />
 		
 		<link rel="stylesheet" href="css/custom/map.css" />
+		<link rel="stylesheet" href="css/custom/nav.css" />
 
 		<script src="js/plugin/underscore-min.js"></script>
 		<script src="js/plugin/jquery-1.8.2.js"></script>
@@ -20,6 +21,7 @@
 		<script type="text/javascript" src="js/custom/code/data.js"></script>
 		<script type="text/javascript" src="js/custom/code/money.js"></script>
 		<script type="text/javascript" src="js/custom/code/map_helper.js"></script>
+		<script type="text/javascript" src="js/custom/code/nav.js"></script>
 		
 		<script type="text/javascript" src="js/custom/template/school.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
@@ -89,7 +91,7 @@
 				      title:listing.address.line });
 				
 				 var boundary = new google.maps.Polygon({
-				    paths: map_helper.geoJsonPolygonToLatLngArray(listing.boundary),
+				    paths: map_helper.geoJsonPolygonToLatLngArray(listing.parcel_boundary),
 				    strokeColor: "#FF0000",
 				    strokeOpacity: 0.8,
 				    strokeWeight: 2,
@@ -97,6 +99,8 @@
 				  });
 				
 				  boundary.setMap(map);
+				  
+				$(window).scroll(nav.onScroll);
 
 			});
 			
@@ -105,11 +109,12 @@
 	<body>
 <!--
 	features / rooms <-- done
-	neighborhood data <-- convert from xml to json.
-	map
-	image gallery <-- next/prev
+	neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.
+	map <-- done
+	image gallery <-- done
 	google analytics
 	css!
+	lock header to top of screen.
 	lead form
 	SEO
 	
@@ -137,9 +142,7 @@
 				</li>
 			</ul>
 			<div id="tabs-1">
-				<div id="listing_header"></div>
-				<div id="listing_overview"></div>
-				<div id="listing_features"></div>
+
 			</div>
 			<div id="tabs-2">
 				<div id="school"></div>
@@ -161,6 +164,10 @@
 				</p>
 			</div>
 		</div>
+		
+		<div id="listing_header"></div>
+		<div id="listing_overview"></div>
+		<div id="listing_features"></div>
 		
  		<div id="map"></div>​
 

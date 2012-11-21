@@ -1,3 +1,10 @@
+var neighborhood = {
+	 "walk_score":{
+	 	"score":70,
+	 	"href":"http://www.walkscore.com/score/15639-cliff-ave-white-rock-bc-canada"
+	 }
+};
+
 var listing = {
 	"prop_type": "single_family",
 	"title":"freehold_nonstrata", 
@@ -9,7 +16,7 @@ var listing = {
         "lat": 49.022302, 
         "long": -122.789153
     }, 
-    "boundary":{ 
+    "parcel_boundary":{ 
     	"type": "Polygon",
 		"coordinates": [
 		    	[ [-122.789258, 49.022061], [-122.789258, 49.02265], [-122.789048, 49.02265], [-122.789048, 49.022061], [-122.789258, 49.022061] ]

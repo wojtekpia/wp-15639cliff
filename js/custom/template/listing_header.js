@@ -24,5 +24,45 @@ app.templates.listing_header = "\
 			<td>Days on Market: XX</td>\
 		</tr>\
 	</table>\
+	<div>\
+		<div id=\"nav_bar\" class=\"progress-bar theme-bottom-border\"></div>\
+		<table id=\"nav_table\" class=\"theme-menu\" cellspacing=\"0\">\
+			<tbody>\
+				<tr>\
+				<td>\
+				<a href=\"#main\" target=\"_self\">Overview</a>\
+				</td>\
+				<td>\
+				<a href=\"#property-details\" target=\"_self\">Property Details</a>\
+				</td>\
+				<td>\
+				<a href=\"#agent-insights\" target=\"_self\">Agent Insights</a>\
+				</td>\
+				<td>\
+				<a href=\"#property-history\" target=\"_self\">Property History</a>\
+				</td>\
+				<td>\
+				<a href=\"#public-records\" target=\"_self\">Public Records</a>\
+				</td>\
+				<td>\
+				<a href=\"#activity\" target=\"_self\">Activity</a>\
+				</td>\
+				<td>\
+				<a href=\"#schools\" target=\"_self\" dojoattachpoint=\"navigationSchoolLabel\">Schools</a>\
+				</td>\
+				<td>\
+				<a href=\"#neighborhood-info\" target=\"_self\">Neighborhood</a>\
+				</td>\
+				<td>\
+				<a href=\"#similar-homes\" target=\"_self\">Similar Homes</a>\
+				</td>\
+				</tr>\
+			</tbody>\
+		</table>\
+	</div>\
+	<br>\
+	<br>\
+	<br>\
+	<br>\
 </div>\
 "
