@@ -1,5 +1,5 @@
 app.templates.listing_header = "\
-<div>\
+<div class=\"docked\">\
 	<table>\
 		<tr>\
 			<th><%= listing.address.line %></th>\
@@ -29,33 +29,12 @@ app.templates.listing_header = "\
 		<table id=\"nav_table\" class=\"theme-menu\" cellspacing=\"0\">\
 			<tbody>\
 				<tr>\
-				<td>\
-				<a href=\"#main\" target=\"_self\">Overview</a>\
-				</td>\
-				<td>\
-				<a href=\"#property-details\" target=\"_self\">Property Details</a>\
-				</td>\
-				<td>\
-				<a href=\"#agent-insights\" target=\"_self\">Agent Insights</a>\
-				</td>\
-				<td>\
-				<a href=\"#property-history\" target=\"_self\">Property History</a>\
-				</td>\
-				<td>\
-				<a href=\"#public-records\" target=\"_self\">Public Records</a>\
-				</td>\
-				<td>\
-				<a href=\"#activity\" target=\"_self\">Activity</a>\
-				</td>\
-				<td>\
-				<a href=\"#schools\" target=\"_self\" dojoattachpoint=\"navigationSchoolLabel\">Schools</a>\
-				</td>\
-				<td>\
-				<a href=\"#neighborhood-info\" target=\"_self\">Neighborhood</a>\
-				</td>\
-				<td>\
-				<a href=\"#similar-homes\" target=\"_self\">Similar Homes</a>\
-				</td>\
+				<td><a href=\"#listing_overview\" target=\"_self\">Overview</a></td>\
+				<td><a href=\"#listing_features\" target=\"_self\">Property Details</a></td>\
+				<td><a href=\"#schools\" target=\"_self\">Schools</a></td>\
+				<td><a href=\"#neighborhood\" target=\"_self\">Neighborhood</a></td>\
+				<td><a href=\"#designer\" target=\"_self\">Designer</a></td>\
+				<td><a href=\"#builder\" target=\"_self\">Builder</a></td>\
 				</tr>\
 			</tbody>\
 		</table>\

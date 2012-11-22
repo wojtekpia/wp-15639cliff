@@ -1,5 +1,6 @@
 app.templates.listing_features = "\
 <div>\
+<h2 id=\"details-header\" class=\"h2 inline\">Property Details for <span class=\"address-string\"></span></h2>\
 <% for(var i = 0; i < listing.features.length; i++){ %>\
 	<table><tr><th><%= listing.features[i].category %></th></tr></table>\
 	<table><tr><td>\

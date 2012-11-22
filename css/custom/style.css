@@ -1,0 +1,47 @@
+.progress-bar {
+	border-bottom: 10px solid;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	height: 0;
+	left: 25px;
+	position: absolute;
+	top: 105px;
+	width: 0;
+	z-index: -10;
+}
+.progress-bar {
+	border-bottom-color: red !important;
+}
+
+.docked { position: fixed; top: 0px; right: 0px; z-index: 21 }
+    
+
+#map{
+    width: 450px;
+    height: 450px;
+    position: relative;
+}
+
+#map.fullscreen {
+    height: 100%!important;
+    width: 100%!important;
+    left: 0;
+    position: absolute!important;
+    top: 0;
+    z-index: 100;
+}
+
+
+.h2 {
+    background-color: #8292AD;
+    border-radius: 0 4px 4px 0;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding: 8px 15px 8px 30px;
+}
+.inline {
+    display: inline-block;
+    vertical-align: top;
+}
