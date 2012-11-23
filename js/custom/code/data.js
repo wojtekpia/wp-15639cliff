@@ -3,6 +3,7 @@ var neighborhood = {
 	 	"score":70,
 	 	"href":"http://www.walkscore.com/score/15639-cliff-ave-white-rock-bc-canada"
 	 }
+	 
 };
 
 var listing = {

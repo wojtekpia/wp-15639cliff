@@ -7,16 +7,18 @@ app.templates.listing_overview = "\
         <% } %>\
     </div>\
 </div>\
+	<div><%= listing.description %></div>\
 	<table>\
-        <tr><td><%= listing.description %></td></tr>\
-        <tr><td><table>\
-        	<tr><th>Property Type</th><td><%= listing.zoning %></td><th>Style</th><td><%= listing.style %></td></tr>\
-        	<tr><th>Community</th><td><%= listing.neighborhood %></td><th>MLS #</th><td><%= listing.mls.listing.id %></td></tr>\
-        </table></td></tr>\
-        <tr><td><table>\
-        	<tr><th>Listing provided courtesy of</th><th>Source</th></tr>\
-        	<tr><td><%= listing.agent.name %></td><td><%= listing.mls.name %></td></tr>\
-        </table></td></tr>\
+		<div class=\"overview-column\">\
+			<ul>\
+				<li><strong>Property Type</strong>: <%= listing.zoning %></li>\
+				<li><strong>Style</strong>: <%= listing.style %></li>\
+				<li><strong>Community</strong>: <%= listing.neighborhood %></li>\
+				<li><strong>MLS #</strong> <%= listing.mls.listing.id %></li>\
+				<li><strong>Listing provided courtesy of</strong>: <%= listing.agent.name %></li>\
+				<li><strong>Source</strong>: <%= listing.mls.name %></li>\
+			</ul>\
+		</div>\
 	</table>\
 </div>\
 "

@@ -13,6 +13,7 @@
 		<script src="js/plugin/jquery-1.8.2.js"></script>
 		<script src="js/plugin/jquery-ui.js"></script>
 		<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
+		<script src="js/plugin/jquery.columnizer.js"></script>
 		
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
 
@@ -116,7 +117,10 @@
 				$(window).scroll(nav.onScroll);
 				
 				$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
-
+				
+				$('#listing_features').columnize({width:400});
+				$('.overview-column').columnize({width:400});
+			
 			});
 			
 		</script>
@@ -127,15 +131,15 @@
 	neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.
 	map <-- done
 	image gallery <-- done
+	put content into sections <-- done
 	google analytics
-	put content into sections.
 	leads to 8i?
-	lock header to top of screen.
+	lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
 	css!
 	lead form
 	SEO
 	domain + hosting
-	 -->	 
+	 -->
 		<div id="listing_header"></div>
 		<div id="listing_overview"></div>
 		<div id="map"></div>
@@ -147,5 +151,6 @@
  		<div id="neighborhood"></div>
  		<div id="designer"></div>
  		<div id="builder"></div>
+
 	</body>
 </html>
