@@ -15,7 +15,7 @@ app.templates.listing_overview = "\
 				<li><strong>Style</strong>: <%= listing.style %></li>\
 				<li><strong>Community</strong>: <%= listing.neighborhood %></li>\
 				<li><strong>MLS #</strong> <%= listing.mls.listing.id %></li>\
-				<li><strong>Listing provided courtesy of</strong>: <%= listing.agent.name %></li>\
+				<li><strong>Listing provided courtesy of</strong>: <%= listing.agent.name.full %></li>\
 				<li><strong>Source</strong>: <%= listing.mls.name %></li>\
 			</ul>\
 		</div>\

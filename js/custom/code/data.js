@@ -2,8 +2,10 @@ var neighborhood = {
 	 "walk_score":{
 	 	"score":70,
 	 	"href":"http://www.walkscore.com/score/15639-cliff-ave-white-rock-bc-canada"
+	 },
+	 "report": {
+	 	"href":"http://canada5.onboardnavigator.com/OBCN_Report.aspx?AID=1014-1e6b59db9d2&SFID=1&RTID=1&CID=441&PID=2&STYPE=2&STEXT=v4b&STEXTOPT=&STEXTOPT2=&AgentID=17&AgentEmail=no@thanks.com&Frame=0&Height=600&Width=600"
 	 }
-	 
 };
 
 var listing = {
@@ -121,7 +123,12 @@ var listing = {
 		{"name":"Wine Room", "dimension":"5 x 3"},
 		{"name":"Wok Kitchen", "dimension":"9 x 3"}],
     "agent": {
-        "name": "Sheena Reimer", 
+        "name": {
+        	"full":"Sheena Reimer",
+        	"first":"Sheena",
+        	"last":"Reimer"
+        	},
+        
         "id": "FREIMSH", 
         "phone": 
         [{
@@ -132,7 +139,15 @@ var listing = {
             "type": "mobile"
         }],
         "href":"http://www.sheenareimer.com",
-        "email":"sheenareimer@gmail.com"
+        "email":"sheenareimer@gmail.com",
+        "photo":
+        {
+        	"href":"http://www.sheenareimer.com/photo_cur_size.jpg"
+        },
+        "slogan":"Your Local White Rock Realtor",
+        "tp":{
+        	"id":"Sheena.Reimer"
+        }
     }
 };
 
