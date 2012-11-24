@@ -1,12 +1,79 @@
-var neighborhood = {
-	 "walk_score":{
-	 	"score":70,
-	 	"href":"http://www.walkscore.com/score/15639-cliff-ave-white-rock-bc-canada"
-	 },
-	 "report": {
-	 	"href":"http://canada5.onboardnavigator.com/OBCN_Report.aspx?AID=1014-1e6b59db9d2&SFID=1&RTID=1&CID=441&PID=2&STYPE=2&STEXT=v4b&STEXTOPT=&STEXTOPT2=&AgentID=17&AgentEmail=no@thanks.com&Frame=0&Height=600&Width=600"
-	 }
-};
+var  neighborhoods = [
+	{
+		"name":"Hillside",
+		"stats":{
+			"fields":{
+				"price":{
+					"average":950000
+				},
+				"price_per_sqft":{
+					"average":300,
+					"photo":{
+						"href":"http://www.redfin.com/stingray/do/region-chart/2012_11_20/2/40749/MEDIAN_HOUSE_SQ_FT_BY_TIME.png"
+					}
+				},
+				"sale_to_list_ratio":{
+					"average":0.975
+				}
+			}
+		},
+		"walk_score":{
+		 	"score":70,
+		 	"href":"http://www.walkscore.com/score/15639-cliff-ave-white-rock-bc-canada"
+		 },
+		 "demographics": {
+		 	"href":"http://canada5.onboardnavigator.com/OBCN_Report.aspx?AID=1014-1e6b59db9d2&SFID=1&RTID=1&CID=441&PID=2&STYPE=2&STEXT=v4b&STEXTOPT=&STEXTOPT2=&AgentID=17&AgentEmail=no@thanks.com&Frame=0&Height=600&Width=600"
+		 }
+	},
+	{
+		"name":"White Rock",
+		"stats":{
+			"fields":{
+				"price":{
+					"average":949000
+				},
+				"price_per_sqft":{
+					"average":305
+				},
+				"sale_to_list_ratio":{
+					"average":0.965
+				}
+			}			
+		}
+	},
+	{
+		"name":"South Surrey",
+		"stats":{
+			"fields":{
+				"price":{
+					"average":850000
+				},
+				"price_per_sqft":{
+					"average":250
+				},
+				"sale_to_list_ratio":{
+					"average":0.989
+				}
+			}			
+		}
+	},
+	{
+		"name":"Surrey",
+		"stats":{
+			"fields":{
+				"price":{
+					"average":500000
+				},
+				"price_per_sqft":{
+					"average":200
+				},
+				"sale_to_list_ratio":{
+					"average":0.945
+				}
+			}			
+		}
+	}
+];
 
 var listing = {
 	"prop_type": "single_family",

@@ -20,6 +20,7 @@
 		<script type="text/javascript" src="js/custom/code/init.js"></script>
 		<script type="text/javascript" src="js/custom/code/data.js"></script>
 		<script type="text/javascript" src="js/custom/code/money.js"></script>
+		<script type="text/javascript" src="js/custom/code/percent.js"></script>
 		<script type="text/javascript" src="js/custom/code/map_helper.js"></script>
 		<script type="text/javascript" src="js/custom/code/nav.js"></script>
 		<script type="text/javascript" src="js/custom/code/tp.js"></script>
@@ -33,12 +34,9 @@
 		<script type="text/javascript" src="js/custom/template/builder.js"></script>
 		<script type="text/javascript" src="js/custom/template/agent.js"></script>
 		<script type="text/javascript" src="js/custom/template/contact_form.js"></script>
-		
 
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$("#tabs").tabs();
-				
 				//listing_details
 				var listingHeaderTemplate = _.template(app.templates.listing_header);
 				var listingHeaderHtml = listingHeaderTemplate({'listing' : listing});
@@ -66,7 +64,7 @@
 				});
 				
 				var neighborhoodTemplate = _.template(app.templates.neighborhood);
-				var neighborhoodHtml = neighborhoodTemplate();
+				var neighborhoodHtml = neighborhoodTemplate({'neighborhoods' : neighborhoods});
 				$("#neighborhood").html(neighborhoodHtml);
 				
 				var builderTemplate = _.template(app.templates.builder);
@@ -134,14 +132,14 @@
 				
 				// TODO: pull this into a separate file.
 				function updateTips( t ) {
-            tips
-                .text( t )
-                .addClass( "ui-state-highlight" );
-            setTimeout(function() {
-                tips.removeClass( "ui-state-highlight", 1500 );
-            }, 500 );
-        }
-				
+		            tips
+		                .text( t )
+		                .addClass( "ui-state-highlight" );
+		            setTimeout(function() {
+		                tips.removeClass( "ui-state-highlight", 1500 );
+		            }, 500 );
+		        }
+
 				        function checkLength( o, n, min, max ) {
             if ( o.val().length > max || o.val().length < min ) {
                 o.addClass( "ui-state-error" );
@@ -214,22 +212,25 @@
             	
             	
 			});
-			
+
 		</script>
 	</head>
 	<body>
 <!--
+	general layout, no styling. includes lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
+	css
+	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.	
+	domain + hosting
+	google analytics
+	SEO
+	
+	DONE
 	features / rooms <-- done
-	neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.
 	map <-- done
 	image gallery <-- done
 	put content into sections <-- done
-	lead form + leads to 8i? <-- prevent bad XML. reduce validation. move code to .js files.
-	lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
-	css!
-	google analytics
-	SEO
-	domain + hosting
+	lead form + leads to 8i <-- reduce validation. move code to .js files.
+	builder, designer, neighborhood dummy data <-- done
 	 -->
 		<div id="listing_header"></div>
 		<div id="listing_overview"></div>
