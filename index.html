@@ -3,17 +3,20 @@
 		<meta charset="utf-8" />
 		<title>15639 Cliff Ave, White Rock, BC</title>
 		<link rel="stylesheet" href="css/plugin/jquery-ui.css" />
-		
 		<link rel="stylesheet" href="css/plugin/nivo-default.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/plugin/nivo-slider.css" type="text/css" media="screen" />
-		
-		<link rel="stylesheet" href="css/custom/style.css" />
+		<link rel="stylesheet" href="css/plugin/waypoints.css" type="text/css" media="all">
 
+		<link rel="stylesheet" href="css/custom/style.css" />
+		
 		<script src="js/plugin/underscore-min.js"></script>
 		<script src="js/plugin/jquery-1.8.2.js"></script>
 		<script src="js/plugin/jquery-ui.js"></script>
 		<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
 		<script src="js/plugin/jquery.columnizer.js"></script>
+		
+		<script src="js/plugin/modernizr.custom.js"></script>
+		<script src="js/plugin/waypoints.min.js"></script>
 		
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
 
@@ -25,6 +28,8 @@
 		<script type="text/javascript" src="js/custom/code/nav.js"></script>
 		<script type="text/javascript" src="js/custom/code/tp.js"></script>
 		
+		<script type="text/javascript" src="js/custom/template/page_header.js"></script>
+		<script type="text/javascript" src="js/custom/template/page_footer.js"></script>
 		<script type="text/javascript" src="js/custom/template/school.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
 		<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
@@ -37,6 +42,14 @@
 
 		<script type="text/javascript">
 			$(document).ready(function() {
+				var pageHeaderTemplate = _.template(app.templates.page_header);
+				var pageHeaderHtml = pageHeaderTemplate();
+				$("#page_header").html(pageHeaderHtml);
+				
+				var pageFooterTemplate = _.template(app.templates.page_footer);
+				var pageFooterHtml = pageFooterTemplate();
+				$("#page_footer").html(pageFooterHtml);
+				
 				//listing_details
 				var listingHeaderTemplate = _.template(app.templates.listing_header);
 				var listingHeaderHtml = listingHeaderTemplate({'listing' : listing});
@@ -127,8 +140,14 @@
 				
 				$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
 				
-				$('#listing_features').columnize({width:400});
-				$('.overview-column').columnize({width:400});
+				if (!$.browser.msie  || (parseInt($.browser.version, 10) !== 8 && parseInt($.browser.version, 10) !== 9)) {
+				  // IE8 doesn't like this.
+				  $('#listing_features').columnize({width:400});
+				  $('.overview-column').columnize({width:400});
+				} /*else {
+				  alert('IE8'); 
+				}*/
+
 				
 				// TODO: pull this into a separate file.
 				function updateTips( t ) {
@@ -171,8 +190,8 @@
 				
 				$( "#contact-form" ).dialog({
 		            autoOpen: false,
-		            height: 300,
-		            width: 350,
+		            height: 600,
+		            width: 500,
 		            modal: true,
 		            buttons: {
 		                "Send": function() {
@@ -211,19 +230,42 @@
             	});
             	
             	
+            	$('.top').addClass('hidden');
+				$.waypoints.settings.scrollThrottle = 30;
+				$('#wrapper').waypoint(function(event, direction) {
+						$('.top').toggleClass('hidden', direction === "up");
+					}, {
+						offset: '-100%'
+				})
+
+				$('#main-nav-holder').waypoint(function(event, direction) {
+					$(this).parent().toggleClass('sticky', direction === "down");
+					event.stopPropagation();
+				});
 			});
 
 		</script>
 	</head>
 	<body>
+		<div id="wrapper">
+		
 <!--
-	general layout, no styling. includes lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
+	move js into template's init() or render() <-- code cleanup.
+		- rebuild DOM. columizer & sticky elements should work in IE.
+	general layout, no styling.
 	css
+	nav:  highlight current 
+	nav:  scroller with waypoints?
+	schools presentation 
+			highcharts or raphael 
+			for grids you can use Flexigrid 
+	Focus off of schools for lead form to show up nicely
 	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.	
-	domain + hosting
+	hosting
 	google analytics
 	SEO
 	
+
 	DONE
 	features / rooms <-- done
 	map <-- done
@@ -231,22 +273,36 @@
 	put content into sections <-- done
 	lead form + leads to 8i <-- reduce validation. move code to .js files.
 	builder, designer, neighborhood dummy data <-- done
+	domain: whiterockviewhouse.com
+	lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
+	Fix in IE: ie8 doesn't like columize. Avoid that, and upgrading to ie9.
 	 -->
+		<div id="page_header"></div>
 		<div id="listing_header"></div>
-		<div id="listing_overview"></div>
-		<div id="map"></div>
-		<div id="agent"></div>
-		
-		<div id="contact-form-wrapper"></div>
-		
-		<div id="listing_features"></div>
- 		<div id="schools">
- 			<h2 id="details-header" class="h2 inline">Schools for <span class="address-string"></span></h2>
- 			<div id="school"></div>
- 		</div>
- 		<div id="neighborhood"></div>
- 		<div id="designer"></div>
- 		<div id="builder"></div>
+
+		<section id="container">
+<br><br><br><br>
+			<div id="listing_overview"></div>			
+			<div id="map"></div>
+			<div id="agent"></div>
+			
+			<div id="contact-form-wrapper"></div>
+			
+			<div id="listing_features"></div>
+	 		<div id="schools">
+	 			<h2 id="details-header" class="h2 inline">Schools for <span class="address-string"></span></h2>
+	 			<div id="school"></div>
+	 		</div>
+	 		<div id="neighborhood"></div>
+	 		<div id="designer"></div>
+	 		<div id="builder"></div>
+ 		</section>
+
+ 		<div id="page_footer"></div>
+ 		<!-- hack to make the last section linkable -->
+ 		<div style="height: 800"></div>
+
+	</div>
 
 	</body>
 </html>

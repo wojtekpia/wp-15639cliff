@@ -46,5 +46,5 @@ var tp = {
 	    .success(function() {  })
 	    .error(function() {  })
 	    .complete(function() {  });
-    },
+    }
 };

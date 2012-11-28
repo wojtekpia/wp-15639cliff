@@ -5,5 +5,5 @@ var map_helper = {
     		coords.push(new google.maps.LatLng(geoJsonPolygon.coordinates[0][i][1],geoJsonPolygon.coordinates[0][i][0]));
     	}
 		return coords;
-    },
+    }
 };
