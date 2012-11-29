@@ -4,37 +4,39 @@ widgets.listing_header = {
 	<nav id=\"nav\" class=\"content\">\
 		<div id=\"summary-stats\">\
 			<div id=\"top-stats\">\
-				<div>\
+				<div class=\"price-block\">\
 					<span class=\"main-stat\"><%= listing.address.line %></span>\
 					<span class=\"sub-stat\"><%= listing.address.city %>, <%= listing.address.state_code %> <%= listing.address.postal_code %></span>\
 				</div>\
-				<div>\
-					<span class=\"main-stat\"><%= listing.price.toMoney() %></span>\
-					<span class=\"sub-stat\">Price</span>\
-				</div>\
-				<div>\
-					<span class=\"main-stat\"><%= listing.bed %></span>\
-					<span class=\"sub-stat\">Beds</span>\
-				</div>\
-				<div>\
-					<span class=\"main-stat\"><%= listing.bath.total %></span>\
-					<span class=\"sub-stat\">Baths</span>\
-				</div>\
-				<div>\
-					<span class=\"main-stat\"><%= listing.sqft %> Sq. Ft.</span>\
-					<span class=\"sub-stat\"><%= (listing.price / listing.sqft).toMoney() %> / Sq. Ft.</span>\
+				<div class=\"info-block-wrapper\">\
+					<div class=\"info-block\">\
+						<span class=\"main-stat\"><%= listing.price.toMoney() %></span>\
+						<span class=\"sub-stat\">Price</span>\
+					</div>\
+					<div class=\"info-block\">\
+						<span class=\"main-stat\"><%= listing.bed %></span>\
+						<span class=\"sub-stat\">Beds</span>\
+					</div>\
+					<div class=\"info-block\">\
+						<span class=\"main-stat\"><%= listing.bath.total %></span>\
+						<span class=\"sub-stat\">Baths</span>\
+					</div>\
+					<div class=\"info-block\">\
+						<span class=\"main-stat\"><%= listing.sqft.toSqft() %></span>\
+						<span class=\"sub-stat\"><%= (listing.price / listing.sqft).toMoney() %> / Sq. Ft.</span>\
+					</div>\
 				</div>\
 			</div>\
 			<div id=\"bottom-stats\">\
+				<div class=\"price-block\">\
+					<span class=\"label\">Status:</span><span class=\"value\"><%= listing.status %></span>\
+				</div>\
+				<div class=\"info-block-wrapper\">\
+					<span class=\"label\">Built:</span><span class=\"value\"><%= listing.year_built %></span>\
+					<span class=\"label\">Lot Size:</span><span class=\"value\"><%= listing.lot.sqft.toLotSize() %></span>\
+				</div>\
 			</div>\
 		</div>\
-		<table>\
-			<tr>\
-				<td>Status: <%= listing.status %></td>\
-				<td>Built: <%= listing.year_built %></td>\
-				<td>Lot Size: <%= listing.lot.sqft %></td>\
-			</tr>\
-		</table>\
 		<div class=\"progress-bar-wrapper page-width \">\
 			<ul>\
 				<li id=\"listing_overview_nav\"><a href=\"#listing_overview\" target=\"_self\">Overview</a></li>\

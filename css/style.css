@@ -45,12 +45,45 @@ body {
 
 .main-stat {
 	display: block;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .sub-stat {
 	display: block;
-    font-size: 10px;
-    color:#E3E3E7;
+    font-size: 16px;
+    color:#788395;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: bold;
+    color:#788395;	
+    padding-left: 55px;
+}
+
+.value {
+    font-size: 16px;
+    color:#788395;	
+    padding-left: 5px;
+}
+
+.info-block {
+    display: inline-block;
+    line-height: 1.2;
+    padding: 0 13px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.price-block {
+    display: inline-block;
+    line-height: 1.2;
+    padding: 0 13px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.info-block-wrapper{
+	float: right;
 }
