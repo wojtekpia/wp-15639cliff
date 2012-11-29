@@ -41,10 +41,11 @@ var tp = {
 	<LeadSubsource>" + listing.address.line + "</LeadSubsource>\
 	</Lead>\
 </LeadList>";
+alert(tpLeadXml);
 
-		var jqxhr = $.post("http://leads.topproduceronline.com/leads/Distributeleads.asp", tpLeadXml, function() { })
+		/*var jqxhr = $.post("http://leads.topproduceronline.com/leads/Distributeleads.asp", tpLeadXml, function() { })
 	    .success(function() {  })
 	    .error(function() {  })
-	    .complete(function() {  });
+	    .complete(function() {  });*/
     }
 };

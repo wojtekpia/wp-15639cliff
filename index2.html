@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<!--
+	css
+	nav:  highlight current 
+	nav:  scroller with waypoints?
+	schools presentation 
+			highcharts or raphael 
+			for grids you can use Flexigrid 
+	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.	
+	hosting
+	google analytics
+	SEO
+
+	DONE
+	features / rooms <-- done
+	map <-- done
+	image gallery <-- done
+	put content into sections <-- done
+	lead form + leads to 8i <-- reduce validation. move code to .js files.
+	builder, designer, neighborhood dummy data <-- done
+	domain: whiterockviewhouse.com
+	lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
+	Fix in IE: ie8 doesn't like columize. Avoid that, and upgrading to ie9.
+	move js into template's init() or render() <-- code cleanup.
+		- rebuild DOM. columizer & sticky elements should work in IE.
+	general layout, no styling.
+	Focus off of schools for lead form to show up nicely
+	 -->
+
+<html lang="en-US">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>15639 Cliff Ave, White Rock, BC</title>
+	<meta name="description" content="Executive ocean view white rock house for sale">
+	
+	<link rel="stylesheet" href="css/custom2/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/custom2/style.css" type="text/css">
+	<link rel="stylesheet" href="css/custom2/listing_header.css" type="text/css">
+	<link rel="stylesheet" href="css/custom2/nivo-default.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/custom2/nivo-slider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/custom2/jquery-ui.css" type="text/css" media="screen" />
+	
+	<script src="js/plugin/modernizr.custom.js"></script>
+	<script src="js/plugin/underscore-min.js"></script>
+	<script src="js/plugin/jquery-1.8.2.js"></script>
+	<script src="js/plugin/waypoints.min.js"></script>
+	<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
+	<script src="js/plugin/jquery-ui.js"></script>
+	<script src="js/plugin/jquery.columnizer.js"></script>
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
+
+	<script type="text/javascript" src="js/custom/code/money.js"></script>
+	<script type="text/javascript" src="js/custom/code/percent.js"></script>
+	<script type="text/javascript" src="js/custom/code/tp.js"></script>
+	<script type="text/javascript" src="js/custom/code/scroll.js"></script>
+	
+	<script type="text/javascript" src="js/custom/code/init.js"></script>
+	<script type="text/javascript" src="js/custom/code/data.js"></script>
+	
+	<script type="text/javascript" src="js/custom/template2/page_header.js"></script>
+	<script type="text/javascript" src="js/custom/template2/listing_header.js"></script>
+	<script type="text/javascript" src="js/custom/template2/listing_overview.js"></script>
+	<script type="text/javascript" src="js/custom/template2/map.js"></script>
+	<script type="text/javascript" src="js/custom/template2/agent.js"></script>
+	<script type="text/javascript" src="js/custom/template2/contact_form.js"></script>
+	<script type="text/javascript" src="js/custom/template2/listing_features.js"></script>
+	<script type="text/javascript" src="js/custom/template2/schools.js"></script>
+	<script type="text/javascript" src="js/custom/template2/neighborhoods.js"></script>
+	<script type="text/javascript" src="js/custom/template2/designer.js"></script>
+	<script type="text/javascript" src="js/custom/template2/builder.js"></script>
+	<script type="text/javascript" src="js/custom/template2/page_footer.js"></script>
+</head>
+<body>
+
+<div id="wrapper" class="page page-width">
+	<div id="page_header"></div>
+	<div id="listing_header"></div>
+	
+	<section id="container">
+		<div id="listing_overview"></div>
+		<div id="map"></div>
+		<div id="agent"></div>
+		<div id="contact-form-wrapper"></div>
+		<div id="listing_features"></div>
+		<div id="schools"></div>
+		<div id="neighborhoods"></div>
+		<div id="designer"></div>
+		<div id="builder"></div>
+	</section>
+
+	<div id="page_footer"></div>
+	<!-- hack to make the last section linkable -->
+	<div style="height: 800"></div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$.waypoints.settings.scrollThrottle = 30;
+	
+	widgets.page_header.render("#page_header");
+	widgets.listing_header.render("#listing_header",listing);
+	widgets.listing_overview.render("#listing_overview",listing);
+	widgets.map.render("#map",listing);
+	widgets.agent.render("#agent",listing.agent);
+	widgets.contact_form.render("#contact-form-wrapper",listing);
+	widgets.listing_features.render("#listing_features",listing);
+	widgets.schools.render("#schools",schools);
+	widgets.neighborhoods.render("#neighborhoods",neighborhoods);
+	widgets.designer.render("#designer");
+	widgets.builder.render("#builder");
+	widgets.page_footer.render("#page_footer", "#wrapper");
+	
+	$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
+	
+  	scroll.smoothScroll();
+});
+</script>
+
+</body>
+</html>
