@@ -9,9 +9,13 @@
 }
 
 .progress-bar-wrapper {
+	border-top-style:solid;
+	border-top-width:1px;
+	border-top-color:#1B7138;
     border-bottom-style: solid;
     border-bottom-width: 4px;
     border-bottom-color: #1B7138 !important;
+    background:#E3E3E7;
 }
 
 #nav a {
@@ -33,7 +37,8 @@
 
 
 #nav-wrapper {
-	height:100px;
+	height:200px;
+
 }
 
 #nav ul {

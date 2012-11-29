@@ -1,23 +1,33 @@
 widgets.listing_header = {
 	template:"\
 <div id=\"nav-wrapper\">\
-	<nav id=\"nav\">\
-		<table>\
-			<tr>\
-				<th><%= listing.address.line %></th>\
-				<th><%= listing.price.toMoney() %></th>\
-				<th><%= listing.bed %></th>\
-				<th><%= listing.bath.total %></th>\
-				<th><%= listing.sqft %> Sq. Ft.</th>\
-			</tr>\
-			<tr>\
-				<td><%= listing.address.city %>, <%= listing.address.state_code %> <%= listing.address.postal_code %></td>\
-				<td>Price</td>\
-				<td>Beds</td>\
-				<td>Baths</td>\
-				<td><%= (listing.price / listing.sqft).toMoney() %> / Sq. Ft.</td>\
-			</tr>\
-		</table>\
+	<nav id=\"nav\" class=\"content\">\
+		<div id=\"summary-stats\">\
+			<div id=\"top-stats\">\
+				<div>\
+					<span class=\"main-stat\"><%= listing.address.line %></span>\
+					<span class=\"sub-stat\"><%= listing.address.city %>, <%= listing.address.state_code %> <%= listing.address.postal_code %></span>\
+				</div>\
+				<div>\
+					<span class=\"main-stat\"><%= listing.price.toMoney() %></span>\
+					<span class=\"sub-stat\">Price</span>\
+				</div>\
+				<div>\
+					<span class=\"main-stat\"><%= listing.bed %></span>\
+					<span class=\"sub-stat\">Beds</span>\
+				</div>\
+				<div>\
+					<span class=\"main-stat\"><%= listing.bath.total %></span>\
+					<span class=\"sub-stat\">Baths</span>\
+				</div>\
+				<div>\
+					<span class=\"main-stat\"><%= listing.sqft %> Sq. Ft.</span>\
+					<span class=\"sub-stat\"><%= (listing.price / listing.sqft).toMoney() %> / Sq. Ft.</span>\
+				</div>\
+			</div>\
+			<div id=\"bottom-stats\">\
+			</div>\
+		</div>\
 		<table>\
 			<tr>\
 				<td>Status: <%= listing.status %></td>\
