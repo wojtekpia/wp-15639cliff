@@ -1,4 +1,5 @@
-app.templates.designer = "\
+widgets.designer = {
+	template:"\
 <div>\
 <h2 id=\"details-header\" class=\"h2 inline\">Designer Info for <span class=\"address-string\"></span></h2>\
 <img src=\"http://www.donetothenines.ca/pics/logo_main.jpg\"/>\
@@ -8,4 +9,12 @@ app.templates.designer = "\
 <p>Donna and Char work together as a design team and love every aspect of the design process. Together they compliment each other with their abilities and are dedicated to designing spaces that meet your needs while being both practical and fashionable.</p>\
 <a href=\"http://www.donetothenines.ca/index.html\">website</a>\
 </div>\
-"
+",
+
+	render: function(selector) {
+		var template = _.template(this.template);
+		var html = template();
+		$(selector).html(html);
+	}
+};
+

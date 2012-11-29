@@ -1,269 +1,16 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>15639 Cliff Ave, White Rock, BC</title>
-		<link rel="stylesheet" href="css/plugin/jquery-ui.css" />
-		<link rel="stylesheet" href="css/plugin/nivo-default.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="css/plugin/nivo-slider.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="css/plugin/waypoints.css" type="text/css" media="all">
+<!DOCTYPE html>
 
-		<link rel="stylesheet" href="css/custom/style.css" />
-		
-		<script src="js/plugin/underscore-min.js"></script>
-		<script src="js/plugin/jquery-1.8.2.js"></script>
-		<script src="js/plugin/jquery-ui.js"></script>
-		<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
-		<script src="js/plugin/jquery.columnizer.js"></script>
-		
-		<script src="js/plugin/modernizr.custom.js"></script>
-		<script src="js/plugin/waypoints.min.js"></script>
-		
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
-
-		<script type="text/javascript" src="js/custom/code/init.js"></script>
-		<script type="text/javascript" src="js/custom/code/data.js"></script>
-		<script type="text/javascript" src="js/custom/code/money.js"></script>
-		<script type="text/javascript" src="js/custom/code/percent.js"></script>
-		<script type="text/javascript" src="js/custom/code/map_helper.js"></script>
-		<script type="text/javascript" src="js/custom/code/nav.js"></script>
-		<script type="text/javascript" src="js/custom/code/tp.js"></script>
-		
-		<script type="text/javascript" src="js/custom/template/page_header.js"></script>
-		<script type="text/javascript" src="js/custom/template/page_footer.js"></script>
-		<script type="text/javascript" src="js/custom/template/school.js"></script>
-		<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
-		<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
-		<script type="text/javascript" src="js/custom/template/listing_features.js"></script>
-		<script type="text/javascript" src="js/custom/template/neighborhood.js"></script>
-		<script type="text/javascript" src="js/custom/template/designer.js"></script>
-		<script type="text/javascript" src="js/custom/template/builder.js"></script>
-		<script type="text/javascript" src="js/custom/template/agent.js"></script>
-		<script type="text/javascript" src="js/custom/template/contact_form.js"></script>
-
-		<script type="text/javascript">
-			$(document).ready(function() {
-				var pageHeaderTemplate = _.template(app.templates.page_header);
-				var pageHeaderHtml = pageHeaderTemplate();
-				$("#page_header").html(pageHeaderHtml);
-				
-				var pageFooterTemplate = _.template(app.templates.page_footer);
-				var pageFooterHtml = pageFooterTemplate();
-				$("#page_footer").html(pageFooterHtml);
-				
-				//listing_details
-				var listingHeaderTemplate = _.template(app.templates.listing_header);
-				var listingHeaderHtml = listingHeaderTemplate({'listing' : listing});
-				$("#listing_header").html(listingHeaderHtml);
-				
-				var listingOverviewTemplate = _.template(app.templates.listing_overview);
-				var listingOverviewHtml = listingOverviewTemplate({'listing' : listing});
-				$("#listing_overview").html(listingOverviewHtml);
-				
-				var listingFeaturesTemplate = _.template(app.templates.listing_features);
-				var listingFeaturesHtml = listingFeaturesTemplate({'listing' : listing});
-				$("#listing_features").html(listingFeaturesHtml);
-				
-				var schoolTemplate = _.template(app.templates.school);
-				var schoolhtml = "";
-				for (var i = 0; i < schools.length; i++) {
-					schoolhtml += schoolTemplate({
-						'school' : schools[i]
-					});
-				}
-				$("#school").html(schoolhtml);
-				$("#school").accordion({
-					heightStyle : "content",
-					collapsible: true
-				});
-				
-				var neighborhoodTemplate = _.template(app.templates.neighborhood);
-				var neighborhoodHtml = neighborhoodTemplate({'neighborhoods' : neighborhoods});
-				$("#neighborhood").html(neighborhoodHtml);
-				
-				var builderTemplate = _.template(app.templates.builder);
-				var builderHtml = builderTemplate();
-				$("#builder").html(builderHtml);
-
-				var designerTemplate = _.template(app.templates.designer);
-				var designerHtml = designerTemplate();
-				$("#designer").html(designerHtml);
-				
-				var agentTemplate = _.template(app.templates.agent);
-				var agentHtml = agentTemplate({'agent' : listing.agent});
-				$("#agent").html(agentHtml);
-				
-				var contactFormTemplate = _.template(app.templates.contact_form);
-				var contactFormHtml = contactFormTemplate ({'listing' : listing});
-				$("#contact-form-wrapper").html(contactFormHtml);
-				
-			    $("#listing-images").nivoSlider({
-			        effect:"sliceUpDown",
-			        slices:15,
-			        boxCols:8,
-			        boxRows:4,
-			        animSpeed:200,
-			        pauseTime:100000,
-			        startSlide:0,
-			        directionNav:true,
-			        controlNav:true,
-			        controlNavThumbs:true,
-			        pauseOnHover:true,
-			        manualAdvance:false
-			    });
-
-				var centerPt = new google.maps.LatLng(listing.address.lat, listing.address.long);
-				var myOptions = {
-				    zoom: 18,
-				    streetViewControl: true,
-				    center: centerPt,
-				    mapTypeId: google.maps.MapTypeId.SATELLITE
-				};
-				
-				var map = new google.maps.Map($('#map')[0], myOptions);
-				
-				var marker = new google.maps.Marker({
-				      position: centerPt,
-				      map: map,
-				      title:listing.address.line });
-				
-				 var boundary = new google.maps.Polygon({
-				    paths: map_helper.geoJsonPolygonToLatLngArray(listing.parcel_boundary),
-				    strokeColor: "#FF0000",
-				    strokeOpacity: 0.8,
-				    strokeWeight: 2,
-				    fillOpacity: 0.0
-				  });
-				
-				  boundary.setMap(map);
-				  
-				$(window).scroll(nav.onScroll);
-				
-				$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
-				
-				if (!$.browser.msie  || (parseInt($.browser.version, 10) !== 8 && parseInt($.browser.version, 10) !== 9)) {
-				  // IE8 doesn't like this.
-				  $('#listing_features').columnize({width:400});
-				  $('.overview-column').columnize({width:400});
-				} /*else {
-				  alert('IE8'); 
-				}*/
-
-				
-				// TODO: pull this into a separate file.
-				function updateTips( t ) {
-		            tips
-		                .text( t )
-		                .addClass( "ui-state-highlight" );
-		            setTimeout(function() {
-		                tips.removeClass( "ui-state-highlight", 1500 );
-		            }, 500 );
-		        }
-
-				        function checkLength( o, n, min, max ) {
-            if ( o.val().length > max || o.val().length < min ) {
-                o.addClass( "ui-state-error" );
-                updateTips( "Length of " + n + " must be between " +
-                    min + " and " + max + "." );
-                return false;
-            } else {
-                return true;
-            }
-        }
-        
-                function checkRegexp( o, regexp, n ) {
-            if ( !( regexp.test( o.val() ) ) ) {
-                o.addClass( "ui-state-error" );
-                updateTips( n );
-                return false;
-            } else {
-                return true;
-            }
-        }
-        
-        var firstName = $( "#firstName" ),
-        	lastName = $( "#lastName" ),
-        	phone = $( "#phone" ),
-            email = $( "#email" ),
-            message = $( "#message" ),
-            allFields = $( [] ).add( firstName ).add( lastName ).add( phone ).add( email ).add( message ),
-            tips = $( ".validateTips" );
-				
-				$( "#contact-form" ).dialog({
-		            autoOpen: false,
-		            height: 600,
-		            width: 500,
-		            modal: true,
-		            buttons: {
-		                "Send": function() {
-		                    var bValid = true;
-		                    allFields.removeClass( "ui-state-error" );
-
-		                    bValid = bValid && checkLength( firstName, "firstName", 1, 16 );
-		                    bValid = bValid && checkLength( lastName, "lastName", 1, 16 );
-		                    bValid = bValid && checkLength( phone, "phone", 1, 16 );
-		                    bValid = bValid && checkLength( email, "email", 1, 80 );
-		                    bValid = bValid && checkLength( message, "message", 1, 80 );
-		 
-		                    bValid = bValid && checkRegexp( firstName, /^[a-z]([0-9a-z_])+$/i, "First name may consist of a-z, 0-9, underscores, begin with a letter." );
-		                    bValid = bValid && checkRegexp( lastName, /^[a-z]([0-9a-z_])+$/i, "Last name may consist of a-z, 0-9, underscores, begin with a letter." );
-		                    bValid = bValid && checkRegexp( phone, /^([0-9])+$/, "Phone field only allow : 0-9" );
-		                    // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
-		                    bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
-		                    //bValid = bValid && checkRegexp( message, /^([0-9a-zA-Z])+$/, "Message field only allow : a-z 0-9" );
-		 
-		                    if ( bValid ) {
-		                        tp.postLead(firstName.val(), lastName.val(), phone.val(), email.val(), message.val(), listing);
-		                        $( this ).dialog( "close" );
-		                    }
-		                },
-		                Cancel: function() {
-		                    $( this ).dialog( "close" );
-		                }
-		            },
-		            close: function() {
-		                allFields.val( "" ).removeClass( "ui-state-error" );
-		            }
-		        });
-
-				$( "#contact-agent" ).button().click(function() {
-                	$( "#contact-form" ).dialog( "open" );
-            	});
-            	
-            	
-            	$('.top').addClass('hidden');
-				$.waypoints.settings.scrollThrottle = 30;
-				$('#wrapper').waypoint(function(event, direction) {
-						$('.top').toggleClass('hidden', direction === "up");
-					}, {
-						offset: '-100%'
-				})
-
-				$('#main-nav-holder').waypoint(function(event, direction) {
-					$(this).parent().toggleClass('sticky', direction === "down");
-					event.stopPropagation();
-				});
-			});
-
-		</script>
-	</head>
-	<body>
-		<div id="wrapper">
 <!--
-	move js into template's init() or render() <-- code cleanup.
-		- rebuild DOM. columizer & sticky elements should work in IE.
-	general layout, no styling.
 	css
 	nav:  highlight current 
 	nav:  scroller with waypoints?
 	schools presentation 
 			highcharts or raphael 
 			for grids you can use Flexigrid 
-	Focus off of schools for lead form to show up nicely
 	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.	
 	hosting
 	google analytics
 	SEO
-	
 
 	DONE
 	features / rooms <-- done
@@ -275,33 +22,101 @@
 	domain: whiterockviewhouse.com
 	lock header to top of screen <-- after some scroll: http://imakewebthings.com/jquery-waypoints/sticky-elements/
 	Fix in IE: ie8 doesn't like columize. Avoid that, and upgrading to ie9.
+	move js into template's init() or render() <-- code cleanup.
+		- rebuild DOM. columizer & sticky elements should work in IE.
+	general layout, no styling.
+	Focus off of schools for lead form to show up nicely
 	 -->
-		<div id="page_header"></div>
-		<div id="listing_header"></div>
 
-		<section id="container">
-<br><br><br><br>
-			<div id="listing_overview"></div>			
-			<div id="map"></div>
-			<div id="agent"></div>
-			
-			<div id="contact-form-wrapper"></div>
-			
-			<div id="listing_features"></div>
-	 		<div id="schools">
-	 			<h2 id="details-header" class="h2 inline">Schools for <span class="address-string"></span></h2>
-	 			<div id="school"></div>
-	 		</div>
-	 		<div id="neighborhood"></div>
-	 		<div id="designer"></div>
-	 		<div id="builder"></div>
- 		</section>
+<html lang="en-US">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>15639 Cliff Ave, White Rock, BC</title>
+	<meta name="description" content="Executive ocean view white rock house for sale">
+	
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/listing_header.css" type="text/css">
+	<link rel="stylesheet" href="css/nivo-default.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/jquery-ui.css" type="text/css" media="screen" />
+	
+	<script src="js/plugin/modernizr.custom.js"></script>
+	<script src="js/plugin/underscore-min.js"></script>
+	<script src="js/plugin/jquery-1.8.2.js"></script>
+	<script src="js/plugin/waypoints.min.js"></script>
+	<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
+	<script src="js/plugin/jquery-ui.js"></script>
+	<script src="js/plugin/jquery.columnizer.js"></script>
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
 
- 		<div id="page_footer"></div>
- 		<!-- hack to make the last section linkable -->
- 		<div style="height: 800"></div>
+	<script type="text/javascript" src="js/custom/code/money.js"></script>
+	<script type="text/javascript" src="js/custom/code/percent.js"></script>
+	<script type="text/javascript" src="js/custom/code/tp.js"></script>
+	<script type="text/javascript" src="js/custom/code/scroll.js"></script>
+	
+	<script type="text/javascript" src="js/custom/code/init.js"></script>
+	<script type="text/javascript" src="js/custom/code/data.js"></script>
+	
+	<script type="text/javascript" src="js/custom/template/page_header.js"></script>
+	<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
+	<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
+	<script type="text/javascript" src="js/custom/template/map.js"></script>
+	<script type="text/javascript" src="js/custom/template/agent.js"></script>
+	<script type="text/javascript" src="js/custom/template/contact_form.js"></script>
+	<script type="text/javascript" src="js/custom/template/listing_features.js"></script>
+	<script type="text/javascript" src="js/custom/template/schools.js"></script>
+	<script type="text/javascript" src="js/custom/template/neighborhoods.js"></script>
+	<script type="text/javascript" src="js/custom/template/designer.js"></script>
+	<script type="text/javascript" src="js/custom/template/builder.js"></script>
+	<script type="text/javascript" src="js/custom/template/page_footer.js"></script>
+</head>
+<body>
 
-	</div>
+<div id="wrapper" class="page page-width">
+	<div id="page_header"></div>
+	<div id="listing_header"></div>
+	
+	<section id="container">
+		<div id="listing_overview"></div>
+		<div id="map"></div>
+		<div id="agent"></div>
+		<div id="contact-form-wrapper"></div>
+		<div id="listing_features"></div>
+		<div id="schools"></div>
+		<div id="neighborhoods"></div>
+		<div id="designer"></div>
+		<div id="builder"></div>
+	</section>
 
-	</body>
+	<div id="page_footer"></div>
+	<!-- hack to make the last section linkable -->
+	<div style="height: 800"></div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$.waypoints.settings.scrollThrottle = 30;
+	
+	widgets.page_header.render("#page_header");
+	widgets.listing_header.render("#listing_header",listing);
+	widgets.listing_overview.render("#listing_overview",listing);
+	widgets.map.render("#map",listing);
+	widgets.agent.render("#agent",listing.agent);
+	widgets.contact_form.render("#contact-form-wrapper",listing);
+	widgets.listing_features.render("#listing_features",listing);
+	widgets.schools.render("#schools",schools);
+	widgets.neighborhoods.render("#neighborhoods",neighborhoods);
+	widgets.designer.render("#designer");
+	widgets.builder.render("#builder");
+	widgets.page_footer.render("#page_footer", "#wrapper");
+	
+	$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
+	
+  	scroll.smoothScroll();
+});
+</script>
+
+</body>
 </html>

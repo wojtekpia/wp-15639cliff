@@ -1,4 +1,5 @@
-app.templates.builder = "\
+widgets.builder = {
+	template:"\
 <div>\
 <h2 id=\"details-header\" class=\"h2 inline\">Builder Info for <span class=\"address-string\"></span></h2>\
 <img src=\"http://www.mecdevelopments.ca/wp-content/themes/twentyten/images/mec-logo.gif\"/>\
@@ -6,4 +7,11 @@ app.templates.builder = "\
 <p>Regardless the size of a project, MEC offers superior project management, taking care of all the details of a build from start-to-finish. And as a licensed building company, you’ll enjoy peace of mind from a home that is backed by the 2-5-10 year home warranty program.</p>\
 <a href=\"http://www.mecdevelopments.ca/\">website</a>\
 </div>\
-"
+",
+
+	render: function(selector) {
+		var template = _.template(this.template);
+		var html = template();
+		$(selector).html(html);
+	}
+};

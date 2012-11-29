@@ -1,0 +1,40 @@
+
+h1 {
+	font-size:24px;
+	font-weight:bold;
+	margin-top:24px;
+}
+
+h2 {
+	font-size:20px;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+
+p {
+	margin:8px 0 24px 0;
+}
+
+#container {
+	margin-bottom:16px;
+}
+
+#map{
+    width: 450px;
+    height: 450px;
+    position: relative;
+}
+
+.page-width {
+	width: 984px;
+}
+
+.page {
+    margin: 0 auto;
+    width: 984px;
+}
+
+body {
+	background: none repeat scroll 0 0 #6F849D;
+}

@@ -1,4 +1,5 @@
-app.templates.listing_overview = "\
+widgets.listing_overview = {
+	template:"\
 <div>\
 	<div class=\"slider-wrapper theme-default controlnav-thumbs\">\
 		<div id=\"listing-images\" class=\"nivoSlider\" style=\"width:700px;height:550px;\">\
@@ -21,4 +22,26 @@ app.templates.listing_overview = "\
 		</div>\
 	</table>\
 </div>\
-"
+",
+
+	render: function(selector,listing) {
+		var template = _.template(this.template);
+		var html = template({'listing' : listing});
+		$(selector).html(html);
+		
+		$("#listing-images").nivoSlider({
+			        effect:"sliceUpDown",
+			        slices:15,
+			        boxCols:8,
+			        boxRows:4,
+			        animSpeed:200,
+			        pauseTime:100000,
+			        startSlide:0,
+			        directionNav:true,
+			        controlNav:true,
+			        controlNavThumbs:true,
+			        pauseOnHover:true,
+			        manualAdvance:false
+			    });
+	}
+};
