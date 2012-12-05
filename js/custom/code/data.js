@@ -142,22 +142,22 @@ var listing = {
                 	"title": "Rooms", 
                 	"features":
                 		[
-                			"Kitchen: 15 x 11",
-							"Master bedroom: 14 x 17",
-							"Family room: 14 x 19",
-							"Great room: 20 x 21",
-							"Laundry: 13 x 10",
-							"Bedroom: 11 x 17",
-							"Bedroom: 11 x 13",
-							"Bedroom: 14 x 12",
-							"Bedroom: 11 x 11",
-							"Eating Area: 12 x 17",
-							"Entrance Hall: 8 x 13",
-							"Media Room: 19 x 18",
-							"Recreation Room: 19 x 19",
-							"Wine Room: 9 x 12",
-							"Wine Room: 5 x 3",
-							"Wok Kitchen: 9 x 3"
+                			"Kitchen: 15' x 11'",
+							"Master bedroom: 14' x 17'",
+							"Family room: 14' x 19'",
+							"Great room: 20' x 21'",
+							"Laundry: 13' x 10'",
+							"Bedroom: 11' x 17'",
+							"Bedroom: 11' x 13'",
+							"Bedroom: 14' x 12'",
+							"Bedroom: 11' x 11'",
+							"Eating Area: 12' x 17'",
+							"Entrance Hall: 8' x 13'",
+							"Media Room: 19' x 18'",
+							"Recreation Room: 19' x 19'",
+							"Wine Room: 9' x 12'",
+							"Wine Room: 5' x 3'",
+							"Wok Kitchen: 9' x 3'"
 						]
                 }
             ]
