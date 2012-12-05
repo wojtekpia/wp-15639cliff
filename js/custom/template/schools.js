@@ -1,6 +1,6 @@
 widgets.schools = {
 	template:"\
-<h2 id=\"details-header\" class=\"h2 inline\">Schools for <span class=\"address-string\"></span></h2>\
+<h2 class=\"h2 inline\">Schools for <span class=\"address-string\"></span></h2>\
 	<div id=\"school-details\">\
 	<% for(var s = 0; s < schools.length; s++){ %>\
 		<h3><%= schools[s].name %></h3>\

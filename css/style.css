@@ -82,13 +82,12 @@ body {
 }
 
 .top_main_content {
-    display: inline-block;
-    vertical-align: top;
+	float:left;
     width: 700px;
 }
 
 .top_sideband_content {
-    float: right;
+    float: left;
     width: 284px;
 }
 
@@ -100,6 +99,7 @@ body {
 
 .top_content {
 	background: #B9DD90;
+	display: inline-block;
 }
 
 .bottom_content {
@@ -140,15 +140,32 @@ body {
     word-wrap: break-word;
 }
 
-.designer_details {
-    display: inline-block;
-    line-height: 1.2;
-    padding: 0 13px;
-    text-align: center;
-    vertical-align: top;
-	
+.contributor_details {
+    float: left; 
+    width: 200px;
 }
 
-.designer_text {
-	float: right;	
+.link_button a {
+    line-height: 16px;
+    padding: 3px 10px;
+    background: #EFEFF0;
+    border: 1px solid #d3d3d3;
+    color: #677C94;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.link_button a:hover {
+    background: #e3e3e7;
+    border: 1px solid #999999
+}
+
+
+
+.contributor_text {
+	float: left; 
+	width: 784px;	
 }

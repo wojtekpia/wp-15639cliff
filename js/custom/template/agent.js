@@ -1,10 +1,10 @@
 widgets.agent = {
 	template:"\
-<div>\
+<div class=\"link_button\">\
 <%= agent.name.full %>\
 <img src=\"<%= agent.photo.href %>\"/>\
 <%= agent.slogan %>\
-<a href=\"<%= agent.href %>\">website</a>\
+<a href=\"<%= agent.href %>\">More about <%= agent.name.first %></a>\
 </div>\
 ",
 

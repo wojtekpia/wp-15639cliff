@@ -1,7 +1,7 @@
 widgets.listing_features = {
 	template:"\
 <div class=\"listing_features\">\
-<h2 id=\"details-header\" class=\"h2 inline\">Property Details for <span class=\"address-string\"></span></h2>\
+<h2 class=\"h2 inline\">Property Details for <span class=\"address-string\"></span></h2>\
 <% for(var i = 0; i < listing.features.length; i++){ %>\
 	<div class=\"master_feature_group_title\"><%= listing.features[i].category %></div>\
 	<div class=\"listing_features_to_columize\">\

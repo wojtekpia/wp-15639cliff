@@ -1,7 +1,7 @@
 widgets.neighborhoods = {
 	template:"\
 <div>\
-<h2 id=\"details-header\" class=\"h2 inline\">Neighbourhood Info for <span class=\"address-string\"></span></h2>\
+<h2 class=\"h2 inline\">Neighbourhood Info for <span class=\"address-string\"></span></h2>\
 <h3>Average Values</h3>\
 <table><tr>\
 	<th>Location</th>\
