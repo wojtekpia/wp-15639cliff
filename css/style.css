@@ -20,19 +20,12 @@ p {
 	margin-bottom:16px;
 }
 
-#map{
-    width: 450px;
-    height: 450px;
-    position: relative;
-}
-
 .page-width {
 	width: 984px;
 }
 
 .page {
     margin: 0 auto;
-    width: 984px;
 }
 
 body {
@@ -86,4 +79,39 @@ body {
 
 .info-block-wrapper{
 	float: right;
+}
+
+.top_main_content {
+    display: inline-block;
+    vertical-align: top;
+    width: 700px;
+}
+
+.top_sideband_content {
+    float: right;
+    width: 284px;
+}
+
+#map {
+    width: 284px;
+    height: 284px;
+    position: relative;
+}
+
+.top_content {
+	background: -moz-linear-gradient(center top , #B9DD90, #FFFFFF) repeat scroll 0 0 transparent;
+}
+
+.bottom_content {
+	background: white;
+}
+
+.bottom_content h2 {
+    background-color: #8292AD;
+    border-radius: 0 4px 4px 0;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding: 8px 15px 8px 30px;
 }

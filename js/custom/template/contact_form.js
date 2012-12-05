@@ -1,6 +1,6 @@
 widgets.contact_form = {
 	template:"\
-<button id=\"contact-agent\">Contact</button>\
+<button id=\"contact-agent\">Go See This Home</button>\
 <div id=\"contact-form\" title=\"Contact <%= listing.agent.name.first %> about <%= listing.address.line %>\">\
     <p class=\"validateTips\">All form fields are required.</p>\
     <form>\

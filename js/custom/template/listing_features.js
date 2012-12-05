@@ -2,6 +2,7 @@ widgets.listing_features = {
 	template:"\
 <div>\
 <h2 id=\"details-header\" class=\"h2 inline\">Property Details for <span class=\"address-string\"></span></h2>\
+<div id=\"listing_features_columns\">\
 <% for(var i = 0; i < listing.features.length; i++){ %>\
 	<table><tr><th><%= listing.features[i].category %></th></tr></table>\
 	<table><tr><td>\
@@ -16,6 +17,7 @@ widgets.listing_features = {
 	</td></tr></table>\
 <% } %>\
 </div>\
+</div>\
 ",
 
 	render: function(selector,listing) {
@@ -23,6 +25,6 @@ widgets.listing_features = {
 		var html = template({'listing' : listing});
 		$(selector).html(html);
 		
-		$(selector).columnize({width:400});
+		$('#listing_features_columns').columnize({width:400});
 	}
 };
