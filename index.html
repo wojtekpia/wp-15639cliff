@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 <!--
-	css
-		- listing_overview
-		- agent beside overview
-		- map below agent
 	nav:  highlight current 
-	nav:  scroller with waypoints?
+	nav: jumps around a little.
+	css
+		- agent
+		- contact form
 	schools presentation 
 			highcharts or raphael 
 			for grids you can use Flexigrid 
@@ -16,6 +15,7 @@
 	SEO
 
 	DONE
+	nav:  scroller with waypoints?
 	features / rooms <-- done
 	map <-- done
 	image gallery <-- done
@@ -29,6 +29,11 @@
 		- rebuild DOM. columizer & sticky elements should work in IE.
 	general layout, no styling.
 	Focus off of schools for lead form to show up nicely
+	css
+		- listing_overview
+		- agent beside overview
+		- map below agent
+
 	 -->
 
 <html lang="en-US">
@@ -128,6 +133,8 @@ $(document).ready(function() {
 	$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
 	
   	scroll.smoothScroll();
+  	widgets.listing_header.resetNavArrow();
+
 });
 </script>
 

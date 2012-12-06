@@ -53,6 +53,16 @@ widgets.listing_header = {
 </div>\
 ",
 
+    // first element must be first visually. it's used as the minimum.
+	navDivToBodyDivMapping : [
+		{"nav":"listing_overview_nav","body":"listing_overview"},
+		{"nav":"listing_features_nav","body":"listing_features"},
+		{"nav":"schools_nav","body":"schools"},
+		{"nav":"neighborhood_nav","body":"neighborhoods"},
+		{"nav":"designer_nav","body":"designer"},
+		{"nav":"builder_nav","body":"builder"}
+	],
+
 	render: function(selector,listing) {
 
 		var template = _.template(this.template);
@@ -68,31 +78,21 @@ widgets.listing_header = {
 	},
 	
     onScroll: function(eventData) {
-    	var navDivToBodyDivMapping = [
-    		{"nav":"listing_overview_nav","body":"listing_overview"},
-    		{"nav":"listing_features_nav","body":"listing_features"},
-    		{"nav":"schools_nav","body":"schools"},
-    		{"nav":"neighborhood_nav","body":"neighborhoods"},
-    		{"nav":"designer_nav","body":"designer"},
-    		{"nav":"builder_nav","body":"builder"}
-    	];
-
-    	//"listing_overview_nav","listing_features_nav","schools_nav","neighborhood_nav","designer_nav","builder_nav"];
     	var currentPosition = $(window).scrollTop() + $("#listing_header").height();
-    	var tempval = "";
+
     	var activeNavBodyMap = null;
     	var verticalPercentIntoDiv = 0.0;
     		
-    	for(var i = 0; i < navDivToBodyDivMapping.length; i++) {
-    		var bodyDiv = $("#" + navDivToBodyDivMapping[i].body);
+    	for(var i = 0; i < widgets.listing_header.navDivToBodyDivMapping.length; i++) {
+    		var bodyDiv = $("#" + widgets.listing_header.navDivToBodyDivMapping[i].body);
     		var bodyTop = bodyDiv.offset().top;
     		var bodyBottom = bodyTop + bodyDiv.height();
     		
     		if(currentPosition > bodyTop && currentPosition <= bodyBottom) {
-    			activeNavBodyMap = navDivToBodyDivMapping[i];
+    			activeNavBodyMap = widgets.listing_header.navDivToBodyDivMapping[i];
     			verticalPercentIntoDiv = (currentPosition - bodyTop) / (bodyBottom - bodyTop);
     			
-    			tempval = navDivToBodyDivMapping[i].body;
+    			tempval = widgets.listing_header.navDivToBodyDivMapping[i].body;
     			break;
     		}
     	}
@@ -100,49 +100,21 @@ widgets.listing_header = {
     	if(activeNavBodyMap != null) {
     		var navDiv = $("#" + activeNavBodyMap.nav);
     		var navLeft = navDiv.position().left;
-    		//var navRight = navLeft + navDiv.width;
-    		// TODO: include start offset.
-    		$("#nav_bar").css('left',(verticalPercentIntoDiv*(navDiv.width()) + navLeft) + 'px');
-    		//tempval = (verticalPercentIntoDiv*(navDiv.width()) + navLeft) + 'px';
+    		var left = (verticalPercentIntoDiv*(navDiv.outerWidth()) + navLeft);
+    		var firstNav = $("#" + widgets.listing_header.navDivToBodyDivMapping[0].nav);
+    		var minLeft = firstNav.position().left + (firstNav.outerWidth()/2);
+    		
+    		left = Math.max(minLeft, left);
+    		
+    		$("#nav_bar").css('left', left + 'px');
     	}
-    	//$('#temp-value').html(tempval);
-    	
-    	
-//    	if(currentPosition > $("#listing_overview").offset().top && currentPosition < $("#listing_overview").offset().top + $("#listing_overview").height()) {
-  //  		tempval = "listing_overview";
-    //	}
-    	
-/*    	tempval += $(window).scrollTop() + $("#listing_header").height();
-    	tempval += " ";
-    	tempval += $("#listing_header").offset().top + $("#listing_header").height();
-    	tempval += " ";
-    	tempval += $("#listing_overview").offset().top;
-    	tempval += " ";
-    	tempval += $("#listing_overview").offset().top + $("#listing_overview").height();
-  */  	
-    	
-    	// start arrow in middle of first item.
-    	// get position just below nav
-    	// find out what contains that position
-    	// move arrow proportionatly with that container
-    	
-    	// if the bottom of the nav thing is inside a div. pretend that the nav is moving on a frozen canvas.
-
-    	// TODO: this needs to be based on a set of known anchors instead of purely linear.
-    	// get width of nav bar
-    	var navDivs = ["listing_overview_nav","listing_features_nav","schools_nav","neighborhood_nav","designer_nav","builder_nav"];
-    	//for(var i=0; i < navDivs.length; i++) {
-    		//alert($("#" + navDivs[i]).width());
-    	//}
-    	
-    	var navWidthStart = $("#listing_overview_nav").position().left;
-    	var navWidthEnd = $("#builder_nav").position().left + $("#builder_nav").width();
-
-    	var navWidth = $("#main-nav-holder").width();
-    	// get current vertical location
-    	var pageHeight = $(document).height();
-    	var screenTop = $(document).scrollTop();
-    	
-    	//$("#nav_bar").css('left',(screenTop/pageHeight*(navWidthEnd-navWidthStart) + navWidthStart + $("#builder_nav").width()/2) + 'px');
+    },
+    
+    resetNavArrow : function() {
+    	// TODO: compute instead of hard-code. 
+		//var firstNav = $("#" + widgets.listing_header.navDivToBodyDivMapping[0].nav);
+		//var minLeft = firstNav.position().left + (firstNav.outerWidth()/2);
+    	//$("#nav_bar").css('left', minLeft + 'px');
+    	$("#nav_bar").css('left', '227.5px');
     }
 };
