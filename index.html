@@ -96,22 +96,22 @@
 		<br style="clear: left;" />
 		<div class="bottom_content">
 			<div id="listing_features"></div>
-			<div id="designer"></div>
-			<div id="builder"></div>
 			<div id="schools"></div>
 			<div id="neighborhoods"></div>
+			<div id="designer"></div>
+			<div id="builder"></div>
 		</div>
 	</section>
+	<div id="spacer" style="height:600px"></div>
 
 	<div id="page_footer"></div>
 	<!-- hack to make the last section linkable -->
-	<div style="height: 800"></div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function() {
 	$.waypoints.settings.scrollThrottle = 30;
-	
+
 	widgets.page_header.render("#page_header");
 	widgets.listing_header.render("#listing_header",listing);
 	widgets.listing_overview.render("#listing_overview",listing);
