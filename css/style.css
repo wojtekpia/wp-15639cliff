@@ -170,3 +170,13 @@ body {
 	width: 784px;	
 }
 
+.next_steps {
+	background:url(../images/buy-box-bg.png);
+	border: 2px solid #FBDE6E;
+	height:400px;
+}
+
+.next_steps_separator {
+	background: url("../images/buy-box-hr-large.png") no-repeat scroll 0 0 transparent;
+    height: 1px;
+}

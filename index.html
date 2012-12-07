@@ -92,11 +92,13 @@
 	<section id="container">
 		<div class="top_content">
 			<div class="top_main_content page-width">
-				<div id="listing_overview"></div>
+				<div id="listing_overview" class="offset_top_for_nav"></div>
 			</div>
 			<div class="top_sideband_content">
-				<div id="contact-form-wrapper"></div>
-				<div id="agent"></div>
+				<div class="next_steps">
+					<div id="contact-form-wrapper"></div>
+					<div id="agent"></div>
+				</div>
 				<div id="map"></div>
 			</div>
 		</div>
@@ -136,7 +138,6 @@ $(document).ready(function() {
 	
   	scroll.smoothScroll();
   	widgets.listing_header.resetNavArrow();
-
 });
 </script>
 
