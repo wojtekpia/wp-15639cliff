@@ -1,49 +1,46 @@
 var scroll = {
 	smoothScroll: function () {
-		function filterPath(string) {
-		  return string
-		    .replace(/^\//,'')
-		    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
-		    .replace(/\/$/,'');
-		  }
-		  var locationPath = filterPath(location.pathname);
-		  var scrollElem = scrollableElement('html', 'body');
-		 
-		  $('a[href*=#]').each(function() {
-		    var thisPath = filterPath(this.pathname) || locationPath;
-		    if (  locationPath == thisPath
-		    && (location.hostname == this.hostname || !this.hostname)
-		    && this.hash.replace(/#/,'') ) {
-		      var $target = $(this.hash), target = this.hash;
-		      if (target) {
-		        var targetOffset = $target.offset().top;
-		        $(this).click(function(event) {
-		          event.preventDefault();
-		          $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
-		            location.hash = target;
-		          });
-		        });
-		      }
-		    }
-		  });
-		 
-		  // use the first element that is "scrollable"
-		  function scrollableElement(els) {
-		    for (var i = 0, argLength = arguments.length; i <argLength; i++) {
-		      var el = arguments[i],
-		          $scrollElement = $(el);
-		      if ($scrollElement.scrollTop()> 0) {
-		        return el;
-		      } else {
-		        $scrollElement.scrollTop(1);
-		        var isScrollable = $scrollElement.scrollTop()> 0;
-		        $scrollElement.scrollTop(0);
-		        if (isScrollable) {
-		          return el;
-		        }
-		      }
-		    }
-		    return [];
-		  }
+		// http://www.zachstronaut.com/posts/2009/01/18/jquery-smooth-scroll-bugs.html
+	  function filterPath(string) {
+	        return string
+	                .replace(/^\//,'')
+	                .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+	                .replace(/\/$/,'');
+	    }
+	
+	    var locationPath = filterPath(location.pathname);
+	    
+	    var scrollElement = 'html, body';
+	    $('html, body').each(function () {
+	        var initScrollTop = $(this).attr('scrollTop');
+	        $(this).attr('scrollTop', initScrollTop + 1);
+	        if ($(this).attr('scrollTop') == initScrollTop + 1) {
+	            scrollElement = this.nodeName.toLowerCase();
+	            $(this).attr('scrollTop', initScrollTop);
+	            return false;
+	        }    
+	    });
+	    
+	    $('a[href*=#]').each(function() {
+	        var thisPath = filterPath(this.pathname) || locationPath;
+	        if  (   locationPath == thisPath
+	                && (location.hostname == this.hostname || !this.hostname)
+	                && this.hash.replace(/#/, '')
+	            ) {
+	                if ($(this.hash).length) {
+	                    $(this).click(function(event) {
+	                        var targetOffset = $(this.hash).offset().top;
+	                        var target = this.hash;
+	                        event.preventDefault();
+	                        $(scrollElement).animate(
+	                            {scrollTop: targetOffset},
+	                            500,
+	                            function() {
+	                                location.hash = target;
+	                        });
+	                    });
+	                }
+	        }
+	    });
 	}
 };

@@ -37,7 +37,6 @@ widgets.listing_header = {
 				</div>\
 			</div>\
 		</div>\
-				<div id=\"temp-value\"></div>\
 		<div class=\"progress-bar-wrapper page-width \">\
 			<ul>\
 				<li id=\"listing_overview_nav\"><a href=\"#listing_overview\" target=\"_self\">Overview</a></li>\
@@ -91,8 +90,6 @@ widgets.listing_header = {
     		if(currentPosition > bodyTop && currentPosition <= bodyBottom) {
     			activeNavBodyMap = widgets.listing_header.navDivToBodyDivMapping[i];
     			verticalPercentIntoDiv = (currentPosition - bodyTop) / (bodyBottom - bodyTop);
-    			
-    			tempval = widgets.listing_header.navDivToBodyDivMapping[i].body;
     			break;
     		}
     	}
@@ -105,8 +102,10 @@ widgets.listing_header = {
     		var minLeft = firstNav.position().left + (firstNav.outerWidth()/2);
     		
     		left = Math.max(minLeft, left);
-    		
     		$("#nav_bar").css('left', left + 'px');
+    		
+    		$(".active_nav").removeClass("active_nav");
+    		navDiv.addClass("active_nav");
     	}
     },
     

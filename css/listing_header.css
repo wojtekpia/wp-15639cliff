@@ -22,6 +22,11 @@
 	color: #788395;
 	text-decoration:none;
  }
+ 
+.active_nav a {
+	color:red;
+}
+
 
 #nav a:hover {
 	color: #1B7138!important;
