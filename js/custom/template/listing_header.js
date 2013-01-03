@@ -39,12 +39,12 @@ widgets.listing_header = {
 		</div>\
 		<div class=\"progress-bar-wrapper page-width \">\
 			<ul>\
-				<li id=\"listing_overview_nav\"><a href=\"#listing_overview\" target=\"_self\">Overview</a></li>\
-				<li id=\"listing_features_nav\"><a href=\"#listing_features\" target=\"_self\">Property Details</a></li>\
-				<li id=\"schools_nav\"><a href=\"#schools\" target=\"_self\">Schools</a></li>\
-				<li id=\"neighborhood_nav\"><a href=\"#neighborhoods\" target=\"_self\">Neighborhood</a></li>\
-				<li id=\"designer_nav\"><a href=\"#designer\" target=\"_self\">Designer</a></li>\
-				<li id=\"builder_nav\"><a href=\"#builder\" target=\"_self\">Builder</a></li>\
+				<li id=\"listing_overview_nav\"><a href=\"#listing_overview_a\" target=\"_self\">Overview</a></li>\
+				<li id=\"listing_features_nav\"><a href=\"#listing_features_a\" target=\"_self\">Property Details</a></li>\
+				<li id=\"schools_nav\"><a href=\"#schools_a\" target=\"_self\">Schools</a></li>\
+				<li id=\"neighborhood_nav\"><a href=\"#neighborhoods_a\" target=\"_self\">Neighborhood</a></li>\
+				<li id=\"designer_nav\"><a href=\"#designer_a\" target=\"_self\">Designer</a></li>\
+				<li id=\"builder_nav\"><a href=\"#builder_a\" target=\"_self\">Builder</a></li>\
 			</ul>\
 			<div id=\"nav_bar\" class=\"progress-bar theme-bottom-border\"></div>\
 		</div>\
@@ -54,12 +54,12 @@ widgets.listing_header = {
 
     // first element must be first visually. it's used as the minimum.
 	navDivToBodyDivMapping : [
-		{"nav":"listing_overview_nav","body":"listing_overview"},
-		{"nav":"listing_features_nav","body":"listing_features"},
-		{"nav":"schools_nav","body":"schools"},
-		{"nav":"neighborhood_nav","body":"neighborhoods"},
-		{"nav":"designer_nav","body":"designer"},
-		{"nav":"builder_nav","body":"builder"}
+		{"nav":{"name":"listing_overview_nav", "left":0,"outer_width":0},"body":{"name":"listing_overview"}},
+		{"nav":{"name":"listing_features_nav", "left":0,"outer_width":0},"body":{"name":"listing_features"}},
+		{"nav":{"name":"schools_nav", "left":0,"outer_width":0},"body":{"name":"schools"}},
+		{"nav":{"name":"neighborhood_nav", "left":0,"outer_width":0},"body":{"name":"neighborhoods"}},
+		{"nav":{"name":"designer_nav", "left":0,"outer_width":0},"body":{"name":"designer"}},
+		{"nav":{"name":"builder_nav", "left":0,"outer_width":0},"body":{"name":"builder"}}
 	],
 
 	render: function(selector,listing) {
@@ -72,8 +72,21 @@ widgets.listing_header = {
 			$(this).parent().toggleClass('sticky', direction === "down");
 			event.stopPropagation();
 		});
-		
+
+		// rather than using navDiv.position().left in computing nav arrow, cache those values ahead of time. they change (unnecessarily for my need) which 
+		// causes the nav to jump around.
+		widgets.listing_header.cacheNavPositions();
 		$(window).scroll(widgets.listing_header.onScroll);
+	},
+	
+	cacheNavPositions: function() {
+		var navLeft = $("#nav").position().left;
+		for(var i = 0; i < widgets.listing_header.navDivToBodyDivMapping.length; i++) {
+			var navDiv = $("#" + widgets.listing_header.navDivToBodyDivMapping[i].nav.name);
+
+			widgets.listing_header.navDivToBodyDivMapping[i].nav.left = navDiv.position().left - navLeft;
+			widgets.listing_header.navDivToBodyDivMapping[i].nav.outer_width = navDiv.outerWidth();
+		}
 	},
 	
     onScroll: function(eventData) {
@@ -81,9 +94,11 @@ widgets.listing_header = {
 
     	var activeNavBodyMap = null;
     	var verticalPercentIntoDiv = 0.0;
-    		
+    	var mightBeTop = false;
+    	var mightBeBottom = false;
+    	
     	for(var i = 0; i < widgets.listing_header.navDivToBodyDivMapping.length; i++) {
-    		var bodyDiv = $("#" + widgets.listing_header.navDivToBodyDivMapping[i].body);
+    		var bodyDiv = $("#" + widgets.listing_header.navDivToBodyDivMapping[i].body.name);
     		var bodyTop = bodyDiv.offset().top;
     		var bodyBottom = bodyTop + bodyDiv.height();
     		
@@ -92,28 +107,39 @@ widgets.listing_header = {
     			verticalPercentIntoDiv = (currentPosition - bodyTop) / (bodyBottom - bodyTop);
     			break;
     		}
+
+    		if(i == 0 && currentPosition < bodyTop) {
+    			mightBeTop = true;
+    		}
+    		else if(i == (widgets.listing_header.navDivToBodyDivMapping.length-1) && currentPosition > bodyBottom) {
+    			mightBeBottom = true;
+    		}
     	}
     	
+    	// top or bottom
+    	if(activeNavBodyMap == null && mightBeTop == true)
+    	{
+    		activeNavBodyMap = widgets.listing_header.navDivToBodyDivMapping[0];
+    		verticalPercentIntoDiv = 0.0;
+    	}
+    	if(activeNavBodyMap == null && mightBeTop == true)
+    	{
+    		activeNavBodyMap = widgets.listing_header.navDivToBodyDivMapping[widgets.listing_header.navDivToBodyDivMapping.length - 1];
+    		verticalPercentIntoDiv = 1.0;
+    	}
+
     	if(activeNavBodyMap != null) {
-    		var navDiv = $("#" + activeNavBodyMap.nav);
-    		var navLeft = navDiv.position().left;
+    		var navDiv = $("#" + activeNavBodyMap.nav.name);
+    		//var navLeft = navDiv.position().left;
+    		var navLeft = activeNavBodyMap.nav.left;
     		var left = (verticalPercentIntoDiv*(navDiv.outerWidth()) + navLeft);
-    		var firstNav = $("#" + widgets.listing_header.navDivToBodyDivMapping[0].nav);
-    		var minLeft = firstNav.position().left + (firstNav.outerWidth()/2);
-    		
-    		left = Math.max(minLeft, left);
+    		var minLeft = widgets.listing_header.navDivToBodyDivMapping[0].nav.left + (widgets.listing_header.navDivToBodyDivMapping[0].nav.outer_width/2);
+    		var maxLeft = widgets.listing_header.navDivToBodyDivMapping[widgets.listing_header.navDivToBodyDivMapping.length-1].nav.left + (widgets.listing_header.navDivToBodyDivMapping[widgets.listing_header.navDivToBodyDivMapping.length-1].nav.outer_width/2);
+
+    		left = Math.min(Math.max(minLeft, left), maxLeft);
     		$("#nav_bar").css('left', left + 'px');
-    		
     		$(".active_nav").removeClass("active_nav");
     		navDiv.addClass("active_nav");
     	}
-    },
-    
-    resetNavArrow : function() {
-    	// TODO: compute instead of hard-code. 
-		//var firstNav = $("#" + widgets.listing_header.navDivToBodyDivMapping[0].nav);
-		//var minLeft = firstNav.position().left + (firstNav.outerWidth()/2);
-    	//$("#nav_bar").css('left', minLeft + 'px');
-    	$("#nav_bar").css('left', '227.5px');
     }
 };

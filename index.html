@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 
 <!--
-	nav:  highlight current 
-	nav: jumps around a little.
-	css
-		- agent
-		- contact form
 	schools presentation 
 			highcharts or raphael 
 			for grids you can use Flexigrid 
-	line up anchor links.
+	css
+		- agent
+		- contact form
+	nav:  highlight current?
 	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.	
 	hosting
 	google analytics
@@ -35,7 +33,11 @@
 		- agent beside overview
 		- map below agent
 	smooth scroll
-
+	line up anchor links.
+	nav: jumps around a little.
+	nav: page top and bottom don't work
+	nav: max right
+	
 	 -->
 
 <html lang="en-US">
@@ -92,7 +94,8 @@
 	<section id="container">
 		<div class="top_content">
 			<div class="top_main_content page-width">
-				<div id="listing_overview" class="offset_top_for_nav"></div>
+				<a id="listing_overview_a" class="anchor"></a>
+				<div id="listing_overview"></div>
 			</div>
 			<div class="top_sideband_content">
 				<div class="next_steps">
@@ -104,10 +107,15 @@
 		</div>
 		<br style="clear: left;" />
 		<div class="bottom_content">
+			<a id="listing_features_a" class="anchor"></a>
 			<div id="listing_features"></div>
+			<a id="schools_a" class="anchor"></a>
 			<div id="schools"></div>
+			<a id="neighborhoods_a" class="anchor"></a>
 			<div id="neighborhoods"></div>
+			<a id="designer_a" class="anchor"></a>
 			<div id="designer"></div>
+			<a id="builder_a" class="anchor"></a>
 			<div id="builder"></div>
 		</div>
 	</section>
@@ -137,7 +145,7 @@ $(document).ready(function() {
 	$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
 	
   	scroll.smoothScroll();
-  	widgets.listing_header.resetNavArrow();
+  	widgets.listing_header.onScroll(null);
 });
 </script>
 

@@ -180,3 +180,5 @@ body {
 	background: url("../images/buy-box-hr-large.png") no-repeat scroll 0 0 transparent;
     height: 1px;
 }
+
+a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
