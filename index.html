@@ -2,15 +2,23 @@
 
 <!--
 	schools presentation 
-			highcharts or raphael 
-			for grids you can use Flexigrid 
+		- dialog with details
+		- style
+		- data
+			-- elementary:  h.t. thrift!!!
+		- table with summary
+		highcharts or raphael 
+		for grids you can use Flexigrid 
+		clicking on tabs jumps the screen
 	css
 		- agent
 		- contact form
 	nav:  highlight current?
-	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.	
+	smooth scroll with tabs
+	neighborhood info: copy some paragraph from wikipedia
 	hosting
 	google analytics
+	get real neighborhood data <-- convert from xml to json. copy redfin metrics + link to walk score & onboard. get from local mls.
 	SEO
 
 	DONE
@@ -37,6 +45,9 @@
 	nav: jumps around a little.
 	nav: page top and bottom don't work
 	nav: max right
+	
+	Notes:
+	https://www.surreyschools.ca/departments/BMGS/Documents/BOUNDARY%20MAP%20-%20All%20Schools.pdf surrey school catchment map.
 	
 	 -->
 
@@ -68,6 +79,7 @@
 	<script type="text/javascript" src="js/custom/code/percent.js"></script>
 	<script type="text/javascript" src="js/custom/code/tp.js"></script>
 	<script type="text/javascript" src="js/custom/code/scroll.js"></script>
+	<script type="text/javascript" src="js/custom/code/geo.js"></script>
 	
 	<script type="text/javascript" src="js/custom/code/init.js"></script>
 	<script type="text/javascript" src="js/custom/code/data.js"></script>
@@ -84,6 +96,7 @@
 	<script type="text/javascript" src="js/custom/template/designer.js"></script>
 	<script type="text/javascript" src="js/custom/template/builder.js"></script>
 	<script type="text/javascript" src="js/custom/template/page_footer.js"></script>
+	<script type="text/javascript" src="js/custom/template/schools2.js"></script>
 </head>
 <body>
 
@@ -136,7 +149,8 @@ $(document).ready(function() {
 	widgets.agent.render("#agent",listing.agent);
 	widgets.contact_form.render("#contact-form-wrapper",listing);
 	widgets.listing_features.render("#listing_features",listing);
-	widgets.schools.render("#schools",schools);
+	//widgets.schools.render("#schools",schools);
+	widgets.schools2.render("#schools",school_groups,listing);
 	widgets.neighborhoods.render("#neighborhoods",neighborhoods);
 	widgets.designer.render("#designer");
 	widgets.builder.render("#builder");
@@ -144,7 +158,7 @@ $(document).ready(function() {
 	
 	$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
 	
-  	scroll.smoothScroll();
+  	//scroll.smoothScroll(); <-- doesn't play nicely with jquery UI tabs
   	widgets.listing_header.onScroll(null);
 });
 </script>
