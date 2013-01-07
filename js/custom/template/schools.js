@@ -2,65 +2,75 @@ widgets.schools = {
 	template:"\
 <h2 class=\"h2 inline\">Schools for <span class=\"address-string\"></span></h2>\
 	<div id=\"school-details\">\
-	<% for(var s = 0; s < schools.length; s++){ %>\
-		<h3><%= schools[s].name %></h3>\
-		<div>\
-		<table>\
-            <tr><th><%= schools[s].name %></th></tr>\
-            <tr><td><%= schools[s].type %> <%= schools[s].level %></td></tr>\
-            <tr><td><%= schools[s].address.line %></td></tr>\
-            <tr><td><%= schools[s].address.city %> <%= schools[s].address.state_code %> <%= schools[s].address.postal_code %></td></tr>\
-            <tr><td><%= schools[s].address.phone_number %></td></tr>\
-        </table>\
-        <table>\
-        	<tr><th>Report Card</th></tr>\
-			<% for(var year in schools[s].rank.by.year){ %>\
-            <tr><td><%= year %> Rank: <%= schools[s].rank.by.year[year] %></td></tr>\
-            <% } %>\
-            <tr><td>Average Rank: <%= schools[s].rank.average %></td></tr>\
-            <tr><td>FI Rating: <%= schools[s].rating.fraser_institute.score %></td></tr>\
-        </table>\
-        <table>\
-        	<tr><th>School Information</th></tr>\
-			<% for(var i = 0; i < schools[s].general_info.length; i++){ %>\
-            <tr><td><%= schools[s].general_info[i].name %>: <%= schools[s].general_info[i].value %></td></tr>\
-            <% } %>\
-        </table>\
-        <table>\
-        	<% var years=[2007,2008,2009,2010,2011] %>\
-            <tr>\
-                <th>Academic Performance</th>\
-                <% for(var i = 0; i < years.length; i++){ %>\
-                	<th><%= years[i] %></th>\
-                <% } %>\
-            </tr>\
-            <% for(var k = 0; k < schools[s].academic_performance.length; k++){ %>\
-            	<tr>\
-            	<td><%= schools[s].academic_performance[k].name %></td>\
-            	<% for(var i = 0; i < years.length; i++){ %>\
-                	<td>\
-                	<% if(schools[s].academic_performance[k].by.year[years[i]]) { %>\
-                		<%= schools[s].academic_performance[k].by.year[years[i]] %>\
-					<% } %>\
-                	</td>\
-                <% } %>\
-            	</tr>\
-            <% } %>\
-        </table>\
-        </div>\
-	<% } %>\
+<div id=\"school-tabs\">\
+    <ul>\
+    	<% for(var s = 0; s < school_groups.length; s++){ %>\
+        	<li><a href=\"#<%= widgets.schools.toTabName(school_groups[s].name) %>\"><%= school_groups[s].name %></a></li>\
+        <% } %>\
+    </ul>\
+	<% for(var s = 0; s < school_groups.length; s++){ %>\
+	    <div id=\"<%= widgets.schools.toTabName(school_groups[s].name) %>\">\
+	        <table>\
+	        	<tr>\
+	        		<th class=\"sch-serves-col\">Serves Home</th>\
+	        		<th class=\"sch-name-col\">School Name</th>\
+	        		<th class=\"sch-type-col\">Type</th>\
+	        		<th class=\"sch-grade-col\">Grades</th>\
+	        		<th class=\"sch-rating-col\">Rating</th>\
+	        		<th class=\"sch-distance-col\">Distance</th>\
+	        	</tr>\
+	        	<% for(var i = 0; i < school_groups[s].schools.length; i++){\
+	        		var school = school_groups[s].schools[i] %>\
+	        		<tr>\
+	        			<td><%= school.assigned %></td>\
+	        			<td><button id=\"<%= widgets.schools.toSchoolButtonName(s,i) %>\"><%= school.name %></button>\</td>\
+	        			<td><%= school.type %></td>\
+	        			<td><%= school.level %></td>\
+	        			<td><%= school.rating.fraser_institute.score %></td>\
+	        			<td><%= geo.distance(school.address.lat, school.address.long, listing.address.lat, listing.address.long).toFixed(2) %> km</td>\
+	        		</tr>\
+	        	<% } %>\
+	        </table>\
+	    </div>\
+    <% } %>\
+</div>\
 	</div>\
 ",
 
-	render: function(selector,schools) {
+	render: function(selector,school_groups) {
 		var template = _.template(this.template);
-		var html = template({'schools' : schools});
+		var html = template({'school_groups' : school_groups, 'listing' : listing});
 		$(selector).html(html);
 		
-		$("#school-details").accordion({
-					heightStyle : "content",
-					collapsible: true
-				});
+		$(function() {
+	        $( "#school-tabs" ).tabs();
+	    });
+	    
+	    for(var s = 0; s < school_groups.length; s++){
+	    	for(var i = 0; i < school_groups[s].schools.length; i++){
+	    		$( "#" + widgets.schools.toSchoolButtonName(s,i) ).button().click(function() {
+	    			var ids = this.id.split("_");
+	    			var school = school_groups[ids[1]].schools[ids[3]];
+
+		        	var newDiv = $(document.createElement('div'));
+					widgets.school.render(newDiv, school);
+					newDiv.dialog(
+						{
+							modal: true,
+							height: 600,
+            				width: 500
+							});
+		    	});
+	    	}
+	    }
+	},
+	
+	toSchoolButtonName: function(s, i) {
+		return "schoolgroup_" + s + "_school_" + i;
+	},
+	
+	toTabName: function(name) {
+		return "sch-tab-" + name.toLowerCase().replace(/ /g,'-');
 	}
 };
 

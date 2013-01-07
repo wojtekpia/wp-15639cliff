@@ -5,6 +5,7 @@
 		- dialog with details
 		- style
 		- table with summary
+		- sort by distance
 		highcharts or raphael 
 		for grids you can use Flexigrid 
 		clicking on tabs jumps the screen
@@ -89,12 +90,12 @@
 	<script type="text/javascript" src="js/custom/template/agent.js"></script>
 	<script type="text/javascript" src="js/custom/template/contact_form.js"></script>
 	<script type="text/javascript" src="js/custom/template/listing_features.js"></script>
-	<script type="text/javascript" src="js/custom/template/schools.js"></script>
 	<script type="text/javascript" src="js/custom/template/neighborhoods.js"></script>
 	<script type="text/javascript" src="js/custom/template/designer.js"></script>
 	<script type="text/javascript" src="js/custom/template/builder.js"></script>
 	<script type="text/javascript" src="js/custom/template/page_footer.js"></script>
-	<script type="text/javascript" src="js/custom/template/schools2.js"></script>
+	<script type="text/javascript" src="js/custom/template/schools.js"></script>
+	<script type="text/javascript" src="js/custom/template/school.js"></script>
 </head>
 <body>
 
@@ -148,7 +149,7 @@ $(document).ready(function() {
 	widgets.contact_form.render("#contact-form-wrapper",listing);
 	widgets.listing_features.render("#listing_features",listing);
 	//widgets.schools.render("#schools",schools);
-	widgets.schools2.render("#schools",school_groups,listing);
+	widgets.schools.render("#schools",school_groups,listing);
 	widgets.neighborhoods.render("#neighborhoods",neighborhoods);
 	widgets.designer.render("#designer");
 	widgets.builder.render("#builder");
