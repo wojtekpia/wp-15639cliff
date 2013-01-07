@@ -23,7 +23,7 @@ widgets.schools2 = {
 	        		var school = school_groups[s].schools[i] %>\
 	        		<tr>\
 	        			<td><%= school.assigned %></td>\
-	        			<td><%= school.name %></td>\
+	        			<td><button id=\"<%= widgets.schools2.toSchoolButtonName(s,i) %>\"><%= school.name %></button>\</td>\
 	        			<td><%= school.type %></td>\
 	        			<td><%= school.level %></td>\
 	        			<td><%= school.rating.fraser_institute.score %></td>\
@@ -45,6 +45,21 @@ widgets.schools2 = {
 		$(function() {
 	        $( "#school-tabs" ).tabs();
 	    });
+	    
+	    for(var s = 0; s < school_groups.length; s++){
+	    	for(var i = 0; i < school_groups[s].schools.length; i++){
+	    		$( "#" + widgets.schools2.toSchoolButtonName(s,i) ).button().click(function() {
+	    			var ids = this.id.split("_");
+	    			var school = school_groups[ids[1]].schools[ids[3]];
+		        	alert(school.name);
+		        	// TODO: create a new div as dialog with appropriate content, then open.
+		    	});
+	    	}
+	    }
+	},
+	
+	toSchoolButtonName: function(s, i) {
+		return "schoolgroup_" + s + "_school_" + i;
 	},
 	
 	toTabName: function(name) {
