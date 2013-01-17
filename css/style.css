@@ -93,12 +93,12 @@ body {
 
 .top_sideband_content {
     float: left;
-    width: 284px;
+    width: 264px;
 }
 
 #map {
-    width: 284px;
-    height: 284px;
+    width: 264px;
+    height: 264px;
     position: relative;
 }
 
@@ -108,6 +108,7 @@ body {
 	background: -webkit-linear-gradient(top,#a3c4ec,#FFFFFF);/* for chrome, webkit browsers */
 	background: -moz-linear-gradient(center top , #A3C4EC, #FFFFFF) repeat scroll 0 0 transparent;/* for FF */
 	display: inline-block;
+	padding: 10px 10px 10px 10px;
 }
 
 .bottom_content {
@@ -139,6 +140,17 @@ body {
 
 .feature_group_title {
 	font-weight: bold;
+}
+
+.listing_features{
+	margin-top:-3px;/*HACK*/
+}
+
+.listing_features_list{
+	margin: 0px 10px 10px 10px;
+	border-bottom: 1px solid #E3E4E5;
+    border-left: 1px solid #E3E4E5;
+    border-right: 1px solid #E3E4E5;
 }
 
 .listing_features li {
