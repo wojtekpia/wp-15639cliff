@@ -5,17 +5,17 @@
 	height: 0;
 	position: relative;
 	width: 0;
-	border-bottom-color: #1B7138 !important;
+	border-bottom-color: #437EC6 !important;
 }
 
 .progress-bar-wrapper {
 	border-top-style:solid;
 	border-top-width:1px;
-	border-top-color:#1B7138;
+	border-top-color:#A4C4EC;
     border-bottom-style: solid;
     border-bottom-width: 4px;
-    border-bottom-color: #1B7138 !important;
-    background:#E3E3E7;
+    border-bottom-color: #437EC6 !important;
+    
 }
 
 #nav a {
@@ -29,7 +29,7 @@
 
 
 #nav a:hover {
-	color: #1B7138!important;
+	color: #437EC6!important;
 }
 
 .hide {
@@ -50,7 +50,6 @@
 	height:30px;
 	line-height:30px;
 	text-align:center;
-	background:#E3E3E7;
 	color:#ddd;
 }
 

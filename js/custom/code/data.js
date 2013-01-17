@@ -134,7 +134,7 @@ var listing = {
     "id": 259868576,
     "list_date": "2012-10-24T12:44:13Z",
     "update_date": "2012-10-28T12:44:13Z",
-    "year_built": 2012,
+    "year_built": 2013,
     "mls": {
         "listing": {
             "id": "F1226274"

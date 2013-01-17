@@ -11,6 +11,10 @@ h2 {
 	margin-top:20px;
 }
 
+.inline {
+    display: inline-block;
+    vertical-align: top;
+}
 
 p {
 	margin:8px 0 24px 0;
@@ -30,6 +34,7 @@ p {
 
 body {
 	background: none repeat scroll 0 0 #6F849D;
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .content {
@@ -98,7 +103,10 @@ body {
 }
 
 .top_content {
-	background: #B9DD90;
+	background-color: #a3c4ec;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a3c4ec', endColorstr='#FFFFFF'); /* for IE */
+	background: -webkit-linear-gradient(top,#a3c4ec,#FFFFFF);/* for chrome, webkit browsers */
+	background: -moz-linear-gradient(center top , #A3C4EC, #FFFFFF) repeat scroll 0 0 transparent;/* for FF */
 	display: inline-block;
 }
 
