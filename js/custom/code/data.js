@@ -290,6 +290,12 @@ var listing = {
         "slogan": "Your Local White Rock Realtor",
         "tp": {
             "id": "Sheena.Reimer"
+        },
+        "office":{
+        	"photo": {
+	            "href": "images/homelife.png"
+	        },
+	        "slogan":"Higher Standards Agents... Higher Results"
         }
     }
 };
