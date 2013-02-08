@@ -202,3 +202,18 @@ body {
 }
 
 a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
+
+#contact-agent{
+	margin:5px;
+}
+
+#contact-form-wrapper{
+    text-align: center;
+}
+
+.ui-dialog .ui-dialog-buttonpane { 
+    text-align: center;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { 
+    float: none;
+}
