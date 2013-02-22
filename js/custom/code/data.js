@@ -1,4 +1,4 @@
-var  neighborhoods = [
+var neighborhoods = [
     {
         "name": "Hillside",
         "stats": {
@@ -275,11 +275,11 @@ var listing = {
         "phone": [
             {
                 "number": "(604) 614-0929",
-                "type": "mobile"
+                "type": "Mobile"
             },
             {
-                "number": "(604) 751-4000",
-                "type": "mobile"
+                "number": "(604) 531-1111",
+                "type": "Office"
             }
         ],
         "href": "http://www.sheenareimer.com",
@@ -291,11 +291,11 @@ var listing = {
         "tp": {
             "id": "Sheena.Reimer"
         },
-        "office":{
-        	"photo": {
-	            "href": "images/homelife.png"
-	        },
-	        "slogan":"Higher Standards Agents... Higher Results"
+        "office": {
+            "photo": {
+                "href": "images/homelife.png"
+            },
+            "slogan": "Higher Standards Agents... Higher Results"
         }
     }
 };
@@ -657,7 +657,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 536-8711",
                 "address": {
-                    "line": "15877 Roper Ave ",
+                    "line": "15877 Roper Ave ",
                     "city": "White Rock",
                     "state_code": "BC",
                     "postal_code": "V4B 2H5",
@@ -1034,7 +1034,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 538-7114",
                 "address": {
-                    "line": "16244 13 Ave ",
+                    "line": "16244 13 Ave ",
                     "city": "Surrey",
                     "state_code": "BC",
                     "postal_code": "V4A 8E6",
@@ -1222,7 +1222,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 531-8833",
                 "address": {
-                    "line": "2064 154 St ",
+                    "line": "2064 154 St ",
                     "city": "Surrey",
                     "state_code": "BC",
                     "postal_code": "V4A 4S3",
@@ -1937,7 +1937,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 531-8082",
                 "address": {
-                    "line": "1730 142 St ",
+                    "line": "1730 142 St ",
                     "city": "Surrey",
                     "state_code": "BC",
                     "postal_code": "V4A 6G7",
@@ -2277,7 +2277,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 536-1626",
                 "address": {
-                    "line": "1880 Laronde Dr ",
+                    "line": "1880 Laronde Dr ",
                     "city": "Surrey",
                     "state_code": "BC",
                     "postal_code": "V4A 9S4",
@@ -2623,7 +2623,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 536-2131",
                 "address": {
-                    "line": "1785 148 St ",
+                    "line": "1785 148 St ",
                     "city": "Surrey",
                     "state_code": "BC",
                     "postal_code": "V4A 4M6",
@@ -3079,7 +3079,7 @@ var school_groups = [
                 "type": "public",
                 "phone_number": "(604) 538-6678",
                 "address": {
-                    "line": "13484 24 Ave ",
+                    "line": "13484 24 Ave ",
                     "city": "Surrey",
                     "state_code": "BC",
                     "postal_code": "V4A 2G5",
@@ -4567,7 +4567,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 536-8711",
         "address": {
-            "line": "15877 Roper Ave ",
+            "line": "15877 Roper Ave ",
             "city": "White Rock",
             "state_code": "BC",
             "postal_code": "V4B 2H5",
@@ -4755,7 +4755,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 531-8833",
         "address": {
-            "line": "2064 154 St ",
+            "line": "2064 154 St ",
             "city": "Surrey",
             "state_code": "BC",
             "postal_code": "V4A 4S3",
@@ -4943,7 +4943,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 531-8082",
         "address": {
-            "line": "1730 142 St ",
+            "line": "1730 142 St ",
             "city": "Surrey",
             "state_code": "BC",
             "postal_code": "V4A 6G7",
@@ -5131,7 +5131,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 538-7114",
         "address": {
-            "line": "16244 13 Ave ",
+            "line": "16244 13 Ave ",
             "city": "Surrey",
             "state_code": "BC",
             "postal_code": "V4A 8E6",
@@ -5319,7 +5319,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 536-1626",
         "address": {
-            "line": "1880 Laronde Dr ",
+            "line": "1880 Laronde Dr ",
             "city": "Surrey",
             "state_code": "BC",
             "postal_code": "V4A 9S4",
@@ -5507,7 +5507,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 536-2131",
         "address": {
-            "line": "1785 148 St ",
+            "line": "1785 148 St ",
             "city": "Surrey",
             "state_code": "BC",
             "postal_code": "V4A 4M6",
@@ -5659,7 +5659,7 @@ var schools = [
         "type": "public",
         "phone_number": "(604) 538-6678",
         "address": {
-            "line": "13484 24 Ave ",
+            "line": "13484 24 Ave ",
             "city": "Surrey",
             "state_code": "BC",
             "postal_code": "V4A 2G5",

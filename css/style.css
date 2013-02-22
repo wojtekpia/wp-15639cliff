@@ -190,8 +190,63 @@ body {
 	width: 784px;	
 }
 
+.agent_img {
+    float:left;
+    width:111px;
+}
+
+.agent_info {
+    float:left;
+    width:135px;
+    padding:5px;
+}
+
+.agent_details {
+    height:180px;
+}
+
+.agent_info a {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #788395;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.agent_info a:hover {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #437ec6;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.agent_label {
+    font-size: 10px;
+}
+
+.agent_name {
+    font-size: 18px;
+}
+
+.agent_slogan {
+    font-size: 14px;
+    font-style: italic;
+    padding: 0 0 5px;
+}
+
+.agent_phone {
+    font-size: 14px;
+}
 .next_steps {
-	background:url(../images/buy-box-bg.png);
+    background: #FDF8CF;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDF8CF', endColorstr='#FBEF8A'); /* for IE */
+	background: -webkit-linear-gradient(top,#FDF8CF,#FBEF8A);/* for chrome, webkit browsers */
+	background: -moz-linear-gradient(center top , #FDF8CF, #FBEF8A) repeat scroll 0 0 transparent;/* for FF */
 	border: 2px solid #FBDE6E;
 	height:400px;
 }
