@@ -6,15 +6,15 @@ widgets.contact_form = {
     <form>\
     <fieldset>\
         <table>\
-            <tr><td><label for=\"firstName\">First Name</label></td>\
+            <tr><td class=\"contact-form-label\"><label for=\"firstName\">First Name</label></td>\
             <td><input type=\"text\" name=\"firstName\" id=\"firstName\" class=\"text ui-widget-content ui-corner-all\" /></td></tr>\
-            <tr><td><label for=\"lastName\">Last Name</label></td>\
+            <tr><td class=\"contact-form-label\"><label for=\"lastName\">Last Name</label></td>\
             <td><input type=\"text\" name=\"lastName\" id=\"lastName\" class=\"text ui-widget-content ui-corner-all\" /></td></tr>\
-            <tr><td><label for=\"email\">Email</label></td>\
+            <tr><td class=\"contact-form-label\"><label for=\"email\">Email</label></td>\
             <td><input type=\"text\" name=\"email\" id=\"email\" value=\"\" class=\"text ui-widget-content ui-corner-all\" /></td></tr>\
-            <tr><td><label for=\"phone\">Phone</label></td>\
+            <tr><td class=\"contact-form-label\"><label for=\"phone\">Phone</label></td>\
             <td><input type=\"text\" name=\"phone\" id=\"phone\" value=\"\" class=\"text ui-widget-content ui-corner-all\" /></td></tr>\
-            <tr><td><label for=\"message\">Message</label></td>\
+            <tr><td class=\"contact-form-label\"><label for=\"message\">Message</label></td>\
             <td><textarea name=\"message\" id=\"message\" value=\"\" class=\"text ui-widget-content ui-corner-all\" /></td></tr>\
         </table>\
     </fieldset>\
@@ -70,6 +70,7 @@ widgets.contact_form = {
             height: 400,
             width: 500,
             modal: true,
+            resizable: false,
             buttons: {
                 "Send": function() {
                     var bValid = true;
