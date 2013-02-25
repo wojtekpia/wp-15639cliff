@@ -3,7 +3,7 @@ widgets.listing_overview = {
 <div>\
 	<div class=\"slider-wrapper theme-default controlnav-thumbs\">\
 		<div id=\"listing-images\" class=\"nivoSlider\">\
-			<% for(var photo_count = 0; photo_count < listing.photo.count; photo_count++){ %>\
+			<% for(var photo_count = 1; photo_count <= listing.photo.count; photo_count++){ %>\
 	        	<img src=\"<%= listing.photo.href.replace(\"{i}\",photo_count).replace(\"{s}\",\"l\") %>\" data-thumb=\"<%= listing.photo.href.replace(\"{i}\",photo_count).replace(\"{s}\",\"t\") %>\" alt=\"\"  />\
 	        <% } %>\
 	    </div>\
@@ -35,7 +35,7 @@ widgets.listing_overview = {
 			        boxCols:8,
 			        boxRows:4,
 			        animSpeed:200,
-			        pauseTime:100000,
+			        pauseTime:5000,
 			        startSlide:0,
 			        directionNav:true,
 			        controlNav:true,

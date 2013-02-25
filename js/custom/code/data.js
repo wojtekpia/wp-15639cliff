@@ -142,8 +142,8 @@ var listing = {
         "name": "Fraser Valley Real Estate Board"
     },
     "photo": {
-        "count": 3,
-        "href": "images/cliffhouse{i}_{s}.jpg"
+        "count": 40,
+        "href": "images/3999_{i}_mls_{s}.jpg"
     },
     "zoning": "residential_detached",
     "description": "This acclaimed Lottery Home Builder and Designer have teamed up again for another stunning home. Attention to detail in this modern seaside home featuring panoramic sweeping ocean views on a coveted 11000 SF lot. This home plan features a large kitchen with top quality custom cabinets, wok kitchen and wine room opening up to a large greatroom to soak in that ocean view. Large covered patio decks with a fireplace. The front of the home has a retractable door from floor to ceiling and the back of home looks out onto the private and expansive yard. The Mbedroom view is breathtaking with double french doors opening onto your private deck. Additional features include Elevator rough-in, 3 zone high efficiency with heat pump, media rm.",
