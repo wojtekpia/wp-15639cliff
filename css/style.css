@@ -287,3 +287,16 @@ a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
     color: #375474;
     font-weight: bold;
 }
+
+.listing_features_list {
+    font-size: 14px;
+}
+
+.listing_features_to_columize {
+    padding:10px;
+}
+
+.contributor_text {
+    line-height: 1.4;
+    font-size: 14px;
+}
