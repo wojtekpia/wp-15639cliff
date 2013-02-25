@@ -65,7 +65,7 @@ widgets.contact_form = {
 				
 		$( "#contact-form" ).dialog({
             autoOpen: false,
-            height: 600,
+            height: 400,
             width: 500,
             modal: true,
             buttons: {
