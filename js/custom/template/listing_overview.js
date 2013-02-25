@@ -8,19 +8,20 @@ widgets.listing_overview = {
 	        <% } %>\
 	    </div>\
 	</div>\
-	<div><%= listing.description %></div>\
-	<table>\
+	<div class=\"listing_description\"><p><%= listing.description %></p>\
+    <table>\
 		<div class=\"overview-column\">\
 			<ul>\
 				<li><strong>Property Type</strong>: <%= listing.zoning %></li>\
 				<li><strong>Style</strong>: <%= listing.style %></li>\
 				<li><strong>Community</strong>: <%= listing.neighborhood %></li>\
 				<li><strong>MLS #</strong> <%= listing.mls.listing.id %></li>\
-				<li><strong>Listing provided courtesy of</strong>: <%= listing.agent.name.full %></li>\
+				<li><strong>Courtesy of</strong>: <%= listing.agent.name.full %></li>\
 				<li><strong>Source</strong>: <%= listing.mls.name %></li>\
 			</ul>\
 		</div>\
 	</table>\
+    </div>\
 </div>\
 ",
 
@@ -28,6 +29,8 @@ widgets.listing_overview = {
 		var template = _.template(this.template);
 		var html = template({'listing' : listing});
 		$(selector).html(html);
+
+		$('.overview-column').columnize({ width: 300 });
 		
 		$("#listing-images").nivoSlider({
 			        effect:"sliceUpDown",

@@ -1,7 +1,7 @@
 widgets.page_header = {
 	template:"\
 <div class=\"content\">\
-<h4>Executive ocean view living in White Rock</h4>\
+<h1>Executive ocean view living in White Rock</h1>\
 </div>\
 ",
 

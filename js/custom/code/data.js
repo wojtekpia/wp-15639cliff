@@ -114,7 +114,7 @@ var listing = {
         ]
     },
     "neighborhood": [
-        "Hillside"
+        "White Rock - Hillside"
     ],
     "price": 2688800,
     "bed": 5,
@@ -124,7 +124,7 @@ var listing = {
         "half": 1
     },
     "status": "active",
-    "style": "two_story_with_basement",
+    "style": "Two story with basement",
     "sqft": 5448,
     "lot": {
         "sqft": 11978,
@@ -145,7 +145,7 @@ var listing = {
         "count": 40,
         "href": "images/3999_{i}_mls_{s}.jpg"
     },
-    "zoning": "residential_detached",
+    "zoning": "Residential detached",
     "description": "This acclaimed Lottery Home Builder and Designer have teamed up again for another stunning home. Attention to detail in this modern seaside home featuring panoramic sweeping ocean views on a coveted 11000 SF lot. This home plan features a large kitchen with top quality custom cabinets, wok kitchen and wine room opening up to a large greatroom to soak in that ocean view. Large covered patio decks with a fireplace. The front of the home has a retractable door from floor to ceiling and the back of home looks out onto the private and expansive yard. The Mbedroom view is breathtaking with double french doors opening onto your private deck. Additional features include Elevator rough-in, 3 zone high efficiency with heat pump, media rm.",
     "features": [
         {
