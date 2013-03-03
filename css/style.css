@@ -162,28 +162,19 @@ body {
 
 .contributor_details {
     float: left; 
-    width: 200px;
+    width: 180px;
+    padding:10px;
 }
 
 .link_button a {
-    line-height: 16px;
-    padding: 3px 10px;
-    background: #EFEFF0;
-    border: 1px solid #d3d3d3;
     color: #677C94;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-	border-radius: 4px 4px 4px 4px;
+    text-decoration: underline;
 }
 
 .link_button a:hover {
-    background: #e3e3e7;
-    border: 1px solid #999999
+    color: #da4f26;
+    text-decoration: underline;
 }
-
-
 
 .contributor_text {
 	float: left; 
@@ -260,7 +251,26 @@ a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
 
 #contact-agent{
 	margin:5px;
+    border: 1px solid #d3d3d3/*{borderColorDefault}*/; 
+	background: #637592/*{bgColorDefault}*/ /*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/; 
+	font-weight: normal/*{fwDefault}*/; 
+	color: white/*{fcDefault}*/;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#637592', endColorstr='#3A4351'); /* for IE */
+	background: -webkit-linear-gradient(top,#637592,#3A4351);/* for chrome, webkit browsers */
+	background: -moz-linear-gradient(center top , #637592, #3A4351) repeat scroll 0 0 transparent;/* for FF */
 }
+
+#contact-agent:hover{
+	margin:5px;
+    border: 1px solid #999999/*{borderColorHover}*/;
+ 	background: #7b91b6/*{bgColorHover}*/ /*{bgImgUrlHover}*/ 50%/*{bgHoverXPos}*/ 50%/*{bgHoverYPos}*/ repeat-x/*{bgHoverRepeat}*/;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7b91b6', endColorstr='#3f5881'); /* for IE */
+	background: -webkit-linear-gradient(top,#7b91b6,#3f5881);/* for chrome, webkit browsers */
+	background: -moz-linear-gradient(center top , #7b91b6, #3f5881) repeat scroll 0 0 transparent;/* for FF */
+ 	font-weight: normal/*{fwDefault}*/; 
+ 	color: white/*{fcHover}*/; 
+}
+
 
 #contact-form-wrapper{
     text-align: center;
@@ -309,3 +319,4 @@ a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
     padding:5px;
     vertical-align:top;
 }
+

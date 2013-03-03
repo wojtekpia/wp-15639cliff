@@ -18,7 +18,7 @@ var neighborhoods = [
             }
         },
         "walk_score": {
-            "score": 70,
+            "score": 67,
             "href": "http://www.walkscore.com/score/15639-cliff-ave-white-rock-bc-canada"
         },
         "demographics": {
@@ -39,7 +39,17 @@ var neighborhoods = [
                     "average": 0.965
                 }
             }
-        }
+        },
+        "links": [
+            {
+                "label": "City Website",
+                "href": "http://www.whiterockcity.ca"
+            },
+            {
+                "label": "On Wikipedia",
+                "href": "http://en.wikipedia.org/wiki/White_Rock,_British_Columbia"
+            }
+        ]
     },
     {
         "name": "South Surrey",
