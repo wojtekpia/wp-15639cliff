@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 
 <!--
-    schools - make is look decent, then ship!
 
     AND THEN
 
-	google analytics
     schools: bring back pop-up link
 	get rid of header: http://www.buffiniandcompany.com/homeforsale/
 	css
@@ -53,6 +51,8 @@
 		clicking on tabs jumps the screen
 	hosting <-- heroku
 	neighborhood info: copy some paragraph from wikipedia
+	google analytics
+    schools - make is look decent, then ship!
 
 	
 	Notes:
@@ -173,6 +173,18 @@ $(document).ready(function() {
   	widgets.listing_header.onScroll(null);
 });
 </script>
+<script type="text/javascript">
 
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38981246-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
 </body>
 </html>
