@@ -10,7 +10,7 @@ widgets.schools = {
     </ul>\
 	<% for(var s = 0; s < school_groups.length; s++){ %>\
 	    <div id=\"<%= widgets.schools.toTabName(school_groups[s].name) %>\">\
-	        <table>\
+	        <table class=\"school-table\">\
 	        	<tr>\
 	        		<th class=\"sch-serves-col\">Serves Home</th>\
 	        		<th class=\"sch-name-col\">School Name</th>\
@@ -22,7 +22,7 @@ widgets.schools = {
 	        	<% for(var i = 0; i < school_groups[s].schools.length; i++){\
 	        		var school = school_groups[s].schools[i] %>\
 	        		<tr>\
-	        			<td><%= school.assigned %></td>\
+	        			<td><%= widgets.schools.getServesHtml(school.assigned) %></td>\
 	        			<!--<td><button id=\"<%= widgets.schools.toSchoolButtonName(s,i) %>\"><%= school.name %></button>\</td>-->\
                         <td><%= school.name %></td>\
 	        			<td><%= widgets.schools.toSchoolTypeLabel(school.type) %></td>\
@@ -66,6 +66,10 @@ widgets.schools = {
 	    }
 	},
 
+	getServesHtml: function (serves) {
+	    return (serves == true) ? "<span class=\"school-serves\">" : "--";
+    },
+
 	toSchoolTypeLabel: function (schoolType) {
 	    return schoolType.toProperCase();
 	},
@@ -83,7 +87,6 @@ widgets.schools = {
 	            break;
 	    }
 	},
-
 	
 	toSchoolButtonName: function(s, i) {
 		return "schoolgroup_" + s + "_school_" + i;

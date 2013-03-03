@@ -320,3 +320,68 @@ a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
     vertical-align:top;
 }
 
+.school-table th {
+    height:25px;
+    padding:5px;
+    background: #FBFBFC;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBFBFC', endColorstr='#F5F5F8'); /* for IE */
+	background: -webkit-linear-gradient(top,#FBFBFC,#F5F5F8);/* for chrome, webkit browsers */
+	background: -moz-linear-gradient(center top , #FBFBFC, #F5F5F8) repeat scroll 0 0 transparent;/* for FF */
+    color: #5C6F8C;
+    font-size: 14px;
+    font-weight:bold;
+    text-align: center;
+    text-shadow: 0 1px 1px #FFFFFF;
+    vertical-align:middle;
+}
+
+.sch-serves-col {
+    width:8%;
+    border-left: 1px solid #E3E4E5;
+    border-top: 1px solid #E3E4E5;
+    border-bottom: 1px solid #E3E4E5;
+}
+
+.sch-name-col {
+    border-top: 1px solid #E3E4E5;
+    border-bottom: 1px solid #E3E4E5;
+}
+
+.sch-type-col {
+    border-top: 1px solid #E3E4E5;
+    border-bottom: 1px solid #E3E4E5;
+
+}
+
+.sch-grade-col {
+    border-top: 1px solid #E3E4E5;
+    border-bottom: 1px solid #E3E4E5;
+}
+
+.sch-rating-col {
+    border-top: 1px solid #E3E4E5;
+    border-bottom: 1px solid #E3E4E5;
+}
+
+.sch-distance-col {
+    border-top: 1px solid #E3E4E5;
+    border-bottom: 1px solid #E3E4E5;
+    border-right: 1px solid #E3E4E5;
+}
+
+.school-table td {
+    height:25px;
+    padding:5px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align:middle;
+    border: 1px solid #E3E4E5;
+}
+
+.school-serves {
+    display: inline-block;
+    vertical-align: top;
+    height: 22px;
+    width: 22px;
+    background: url("../images/check.png") no-repeat scroll 0 0 transparent;
+}
