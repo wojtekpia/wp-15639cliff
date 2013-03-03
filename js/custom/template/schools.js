@@ -23,9 +23,10 @@ widgets.schools = {
 	        		var school = school_groups[s].schools[i] %>\
 	        		<tr>\
 	        			<td><%= school.assigned %></td>\
-	        			<td><button id=\"<%= widgets.schools.toSchoolButtonName(s,i) %>\"><%= school.name %></button>\</td>\
-	        			<td><%= school.type %></td>\
-	        			<td><%= school.level %></td>\
+	        			<!--<td><button id=\"<%= widgets.schools.toSchoolButtonName(s,i) %>\"><%= school.name %></button>\</td>-->\
+                        <td><%= school.name %></td>\
+	        			<td><%= widgets.schools.toSchoolTypeLabel(school.type) %></td>\
+	        			<td><%= widgets.schools.toGradeLevelLabel(school.level) %></td>\
 	        			<td><%= school.rating.fraser_institute.score %></td>\
 	        			<td><%= geo.distance(school.address.lat, school.address.long, listing.address.lat, listing.address.long).toFixed(2) %> km</td>\
 	        		</tr>\
@@ -64,6 +65,25 @@ widgets.schools = {
 	    	}
 	    }
 	},
+
+	toSchoolTypeLabel: function (schoolType) {
+	    return schoolType.toProperCase();
+	},
+
+	toGradeLevelLabel: function (gradeLevel) {
+	    switch (gradeLevel) {
+	        case "elementary_school":
+	            return "Elementary";
+	            break;
+	        case "high_school":
+	            return "Secondary";
+	            break;
+	        case "k_12":
+	            return "K to 12";
+	            break;
+	    }
+	},
+
 	
 	toSchoolButtonName: function(s, i) {
 		return "schoolgroup_" + s + "_school_" + i;

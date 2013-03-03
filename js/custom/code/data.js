@@ -2472,7 +2472,7 @@ var school_groups = [
         ]
     },
     {
-        "name": "Nearby High",
+        "name": "Nearby Secondary",
         "schools": [
             {
                 "name": "Earl Marriott Secondary",
