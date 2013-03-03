@@ -385,3 +385,28 @@ a.anchor{display: block; position: relative; top: -111px; visibility: hidden;}
     width: 22px;
     background: url("../images/check.png") no-repeat scroll 0 0 transparent;
 }
+
+#school-tabs {
+    border:none;
+    font-size:14px;
+}
+
+#school-tabs ul {
+    border:none;
+}
+
+
+#school-tabs li {
+    border-top-right-radius:0px;
+    border-top-left-radius:0px;
+}
+
+.ui-tabs .ui-tabs-nav {
+        text-align: center;
+}
+
+.ui-tabs .ui-tabs-nav li {
+        float: none !important;
+        display: inline-block;
+}
+
