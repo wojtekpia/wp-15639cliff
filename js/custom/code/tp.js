@@ -36,7 +36,7 @@ var tp = {
 		<Role>Buyer</Role>\
 	</Contact>\
 	<LeadOwnerID>" + listing.agent.tp.id + "</LeadOwnerID>\
-	<LeadSource>" + listing.agent.href + "</LeadSource>\
+	<LeadSource>" + document.location + "</LeadSource>\
 	<IsTPAccount>true</IsTPAccount>\
 	<LeadSubsource>" + listing.address.line + "</LeadSubsource>\
 	</Lead>\
