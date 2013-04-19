@@ -42,22 +42,22 @@
 	nav: jumps around a little.
 	nav: page top and bottom don't work
 	nav: max right
-	schools presentation 
+	schools presentation
 		- dialog with details
 		- table with summary
 		- sort by distance
-		highcharts or raphael 
-		for grids you can use Flexigrid 
+		highcharts or raphael
+		for grids you can use Flexigrid
 		clicking on tabs jumps the screen
 	hosting <-- heroku
 	neighborhood info: copy some paragraph from wikipedia
 	google analytics
     schools - make is look decent, then ship!
 
-	
+
 	Notes:
 	https://www.surreyschools.ca/departments/BMGS/Documents/BOUNDARY%20MAP%20-%20All%20Schools.pdf surrey school catchment map.
-	
+
 	 -->
 
 <html lang="en-US">
@@ -65,14 +65,14 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>15639 Cliff Ave, White Rock, BC</title>
 	<meta name="description" content="Executive ocean view white rock house for sale">
-	
+
 	<link rel="stylesheet" href="css/reset.css" type="text/css">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link rel="stylesheet" href="css/listing_header.css" type="text/css">
 	<link rel="stylesheet" href="css/nivo-default.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/jquery-ui.css" type="text/css" media="screen" />
-	
+
 	<script src="js/plugin/modernizr.custom.js"></script>
 	<script src="js/plugin/underscore-min.js"></script>
 	<script src="js/plugin/jquery-1.8.2.js"></script>
@@ -80,7 +80,7 @@
 	<script src="js/plugin/jquery.nivo.slider.pack.js"></script>
 	<script src="js/plugin/jquery-ui.js"></script>
 	<script src="js/plugin/jquery.columnizer.js"></script>
-	
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGboCvPxNO2NCcLsEPSzGxpmSlRUvZfHY&sensor=false"> </script>
 
 	<script type="text/javascript" src="js/custom/code/money.js"></script>
@@ -90,10 +90,10 @@
 	<script type="text/javascript" src="js/custom/code/scroll.js"></script>
 	<script type="text/javascript" src="js/custom/code/geo.js"></script>
     <script type="text/javascript" src="js/custom/code/string.js"></script>
-	
+
 	<script type="text/javascript" src="js/custom/code/init.js"></script>
 	<script type="text/javascript" src="js/custom/code/data.js"></script>
-	
+
 	<script type="text/javascript" src="js/custom/template/page_header.js"></script>
 	<script type="text/javascript" src="js/custom/template/listing_header.js"></script>
 	<script type="text/javascript" src="js/custom/template/listing_overview.js"></script>
@@ -163,13 +163,13 @@ $(document).ready(function() {
 	widgets.designer.render("#designer");
 	widgets.builder.render("#builder");
 	widgets.page_footer.render("#page_footer", "#wrapper");
-		
+
   	scroll.smoothScroll();
-	// HACK: jQuery UI tabs don't play nicely with smoothScroll. So rendering schools (which use tabs) after smoothing scroll.  	
+	// HACK: jQuery UI tabs don't play nicely with smoothScroll. So rendering schools (which use tabs) after smoothing scroll.
   	widgets.schools.render("#schools",school_groups,listing);
 
 	$(".address-string").html(listing.address.line + ", " + listing.address.city + ", " + listing.address.state_code);
-  	
+
   	widgets.listing_header.onScroll(null);
 });
 </script>

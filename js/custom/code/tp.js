@@ -9,12 +9,12 @@ var tp = {
 			"'": '&#39;',
 			"/": '&#x2F;'
 		};
-		
+
 		return String(string).replace(/[&<>"'\/]/g, function (s) {
 			return entityMap[s];
 		});
 	},
-	
+
     postLead: function(firstName, lastName, phone, email, message, listing) {
     	var tpLeadXml = "<?xml version=\"1.0\"?>\
 <LeadList>\
@@ -41,11 +41,11 @@ var tp = {
 	<LeadSubsource>" + listing.address.line + "</LeadSubsource>\
 	</Lead>\
 </LeadList>";
-alert(tpLeadXml);
+//alert(tpLeadXml);
 
-		/*var jqxhr = $.post("http://leads.topproduceronline.com/leads/Distributeleads.asp", tpLeadXml, function() { })
+		var jqxhr = $.post("http://leads.topproduceronline.com/leads/Distributeleads.asp", tpLeadXml, function() { })
 	    .success(function() {  })
 	    .error(function() {  })
-	    .complete(function() {  });*/
+	    .complete(function() {  });
     }
 };
